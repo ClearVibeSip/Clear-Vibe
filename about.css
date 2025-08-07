@@ -45,8 +45,8 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-   padding-top: 15px; /* Adjust based on your header height */
-   margin-top: 15px; /* Same idea */
+   padding-top: 10px; /* Adjust based on your header height */
+   margin-top: 10px; /* Same idea */
 }
 
 .about-section {
@@ -139,12 +139,12 @@ nav ul li a:hover {
 
 .back-button {
   position: absolute;
-  top: 50px;
+  top: 20px;
   left: 20px;
   background-color: #ffffffcc;
   color: #0a3d62;
   border: none;
-  padding-top: 15px;
+  padding-top: 10px;
   font-size: 16px;
   font-weight: 500;
   border-radius: 8px;
@@ -179,6 +179,7 @@ html {
     padding: 1rem;
   }
 }
+
 
 
 
