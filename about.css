@@ -5,7 +5,7 @@ body {
   background-color: #99daf8;
   color: #1a1a1a;
   overflow-x: hidden;
-  overflow-y: hidden; /* Prevent scroll unless necessary */
+  overflow-y: auto; /* Prevent scroll unless necessary */
 }
 
 header {
@@ -186,3 +186,4 @@ html {
     padding: 1rem;
   }
 }
+
