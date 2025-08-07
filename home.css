@@ -292,3 +292,21 @@ h2 {
 h3 {
   font-size: 1.5rem;
 }
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .hero-text {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+}
