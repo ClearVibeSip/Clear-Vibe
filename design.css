@@ -102,13 +102,6 @@ nav ul li a:hover {
   margin-bottom: 16px;
 }
 
-footer {
-  background-color: #8dd9fa;
-  text-align: center;
-  padding: 30px;
-  font-size: 14px;
-  color: #777;
-}
 
 
 .back-button {
@@ -154,5 +147,6 @@ html {
     padding: 1rem;
   }
 }
+
 
 
