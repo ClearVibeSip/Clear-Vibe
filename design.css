@@ -14,7 +14,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
+  padding: 20px;
   background-color: #a8e3fc;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
@@ -46,7 +46,6 @@ nav ul li a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 120px); /* Full screen minus header + footer */
   padding: 1rem;
   padding-top: 70px; /* Adjust based on your header height */
    margin-top: 70px; /* Same idea */
@@ -149,6 +148,7 @@ html {
     padding: 1rem;
   }
 }
+
 
 
 
