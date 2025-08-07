@@ -45,8 +45,8 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-   padding-top: 10px; /* Adjust based on your header height */
-   margin-top: 10px; /* Same idea */
+   padding-top: 6px; /* Adjust based on your header height */
+   margin-top: 6px; /* Same idea */
 }
 
 .about-section {
@@ -159,6 +159,7 @@ html {
     padding: 1rem;
   }
 }
+
 
 
 
