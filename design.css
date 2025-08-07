@@ -41,15 +41,18 @@ nav ul li a:hover {
 }
 
 /* Design Page */
+@media (max-width: 768px) {
 .design-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: calc(100vh - 120px); /* Full screen minus header + footer */
-  padding: 0 60px;
+  padding: 1rem;
   background: linear-gradient(135deg, #e0f7ff 0%, #75d1f9 100%);
   box-sizing: border-box;
   overflow-y: auto;
+  text-align: center;
+    flex-direction: column;
 }
 
 
@@ -63,11 +66,18 @@ nav ul li a:hover {
 }
 
 .bottle-image img {
-  max-width: 360px;
+  max-width: 300px;
   width: 100%;
+  height: auto;
+    margin: 0 auto;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
   animation: float 6s ease-in-out infinite;
 }
+
+.design-text {
+    font-size: 1rem;
+    padding-top: 1rem;
+  }
 
 @keyframes float {
   0%, 100% {
@@ -78,9 +88,6 @@ nav ul li a:hover {
   }
 }
 
-.design-text {
-  max-width: 600px;
-}
 
 .design-text h1 {
   font-size: 42px;
@@ -147,4 +154,5 @@ html {
     padding: 1rem;
   }
 }
+
 
