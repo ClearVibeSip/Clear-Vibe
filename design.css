@@ -48,6 +48,8 @@ nav ul li a:hover {
   justify-content: center;
   height: calc(100vh - 120px); /* Full screen minus header + footer */
   padding: 1rem;
+  padding-top: 70px; /* Adjust based on your header height */
+   margin-top: 70px; /* Same idea */
   background: linear-gradient(135deg, #e0f7ff 0%, #75d1f9 100%);
   box-sizing: border-box;
   overflow-y: auto;
@@ -147,6 +149,7 @@ html {
     padding: 1rem;
   }
 }
+
 
 
 
