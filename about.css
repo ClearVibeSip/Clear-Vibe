@@ -137,26 +137,6 @@ nav ul li a:hover {
 
 
 
-.back-button {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background-color: #ffffffcc;
-  color: #0a3d62;
-  border: none;
-  padding-top: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.back-button:hover {
-  background-color: #e0f4ff;
-  transform: translateY(-2px);
-}
 
 html {
   scroll-behavior: smooth;
@@ -179,6 +159,7 @@ html {
     padding: 1rem;
   }
 }
+
 
 
 
