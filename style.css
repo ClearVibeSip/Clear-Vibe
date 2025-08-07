@@ -1,0 +1,120 @@
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(to right, #e1f5ff, #cdeeff);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(141, 222, 243);
+  padding: 4rem;
+  border-radius: 2rem;
+  box-shadow: 0 15px 35px rgba(0, 80, 150, 0.2);
+  max-width: 1000px;
+  width: 110%;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.content {
+  text-align: center;
+  flex: 1;
+}
+
+.hero {
+  background: #d9f3ff; /* soft light-blue */
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+
+.logo {
+  width: 200px;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.1));
+}
+
+.slogan {
+  font-size: 1.8rem;
+  color: #0077b6;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.bottle-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottle {
+  width: 230px;
+  max-width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* Transition wrapper for landing */
+.fade-container {
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+
+.fade-container.fade-out {
+  opacity: 0;
+}
+
+
+@media (max-width: 600px) {
+  .landing-logo {
+    width: 200px;
+  }
+
+  .landing-bottle {
+    width: 180px;
+  }
+
+  .landing-content {
+    padding: 10px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
