@@ -4,7 +4,8 @@ body {
   font-family: 'Outfit', sans-serif;
   background: linear-gradient(to right, #a8e3fc, #87d9fc);
   color: #222;
-  overflow: hidden; /* prevent scroll */
+  overflow-x: hidden;
+  overflow-y: auto;   
   height: 100vh;
 }
 
@@ -48,7 +49,7 @@ nav ul li a:hover {
   padding: 0 60px;
   background: linear-gradient(135deg, #e0f7ff 0%, #75d1f9 100%);
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 
@@ -146,3 +147,4 @@ html {
     padding: 1rem;
   }
 }
+
