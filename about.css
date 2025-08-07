@@ -12,7 +12,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
+  padding: 20px;
   background-color: #99daf8;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
@@ -45,8 +45,8 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 140px); /* Viewport height minus header & footer */
-  padding: 0 20px;
+   padding-top: 60px; /* Adjust based on your header height */
+   margin-top: 60px; /* Same idea */
 }
 
 .about-section {
@@ -179,5 +179,6 @@ html {
     padding: 1rem;
   }
 }
+
 
 
