@@ -3,7 +3,8 @@ body {
   padding: 0;
   font-family: 'Outfit', sans-serif;
   background: linear-gradient(to bottom right, #87d9fc, #87d9fc);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -57,5 +58,23 @@ p {
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .hero-text {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
 }
 
