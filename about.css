@@ -111,14 +111,7 @@ nav ul li a:hover {
   font-weight: 400;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #99daf8;
-  font-size: 14px;
-  color: #777;
-}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -186,4 +179,5 @@ html {
     padding: 1rem;
   }
 }
+
 
