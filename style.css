@@ -12,7 +12,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .container {
@@ -136,3 +137,4 @@ html {
     padding: 1rem;
   }
 }
+
