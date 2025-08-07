@@ -9,7 +9,8 @@ body, html {
   height: 100%;
   width: 100%;
   font-family: 'Outfit', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .slideshow-container {
@@ -310,3 +311,4 @@ h3 {
     padding: 1rem;
   }
 }
+
