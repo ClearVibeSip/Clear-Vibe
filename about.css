@@ -1,3 +1,171 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: #99daf8;
+  color: #1a1a1a;
+  overflow-x: hidden;
+  overflow-y: auto; /* Prevent scroll unless necessary */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #99daf8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.header-logo {
+  height: 60px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #0088cc;
+}
+
+/* About Section */
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   padding-top: 6px; /* Adjust based on your header height */
+   margin-top: 6px; /* Same idea */
+}
+
+.about-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 60px;
+  background: #70cff8;
+  padding: 40px 60px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0a3d62;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.owner-image {
+  flex: 1;
+  text-align: center;
+}
+
+.owner-image img {
+  width: 180px;         /* Adjust as needed */
+  height: 180px;        /* Same as width for perfect circle */
+  border-radius: 50%;   /* This makes it circular */
+  object-fit: cover;    /* Ensures the image fits nicely in the circle */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Optional: soft shadow for premium feel */
+  margin-bottom: 12px;
+}
+
+
+
+.owner-image h3 {
+  font-size: 24px; /* Increased from 20px */
+  font-weight: 700;
+  color: #0a3d62;
+  margin: 0;
+}
+
+.owner-image span {
+  font-size: 16px; /* Increased from 14px */
+  color: #555;
+  font-weight: 400;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .about-text h1 {
+    font-size: 28px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+
+  .owner-image img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .hero-text {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+}
+
+
+
+
+
+
+
 /* Animated Gradient Background */
 body {
   background: linear-gradient(-45deg, #99daf8, #70cff8, #87e0f8, #b3e5fc);
@@ -60,3 +228,4 @@ body {
   font-size: 14px;
   color: #333;
 }
+
