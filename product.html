@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products – Clear Vibe</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="stylesheet" href="product.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Clear Vibe Logo" class="header-logo" />
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1>Discover Our Premium Varieties</h1>
+      <p>Pure refreshment, crafted for every taste</p>
+    </div>
+  </section>
+
+  <!-- Varieties Section -->
+  <section class="varieties-section">
+    <h2>Our Varieties</h2>
+    <div class="variety-cards">
+      
+      <!-- Normal Bottle -->
+      <div class="variety-card fade-in">
+        <img src="bottle.png" alt="Normal Clear Vibe Bottle" loading="lazy">
+        <h3>Pure Mineral Water</h3>
+        <p>Crystal-clear mineral water, purified to the highest standards. Ideal for daily refreshment.</p>
+        <span class="price">₹10</span>
+      </div>
+
+      <!-- Mint Flavour Bottle -->
+      <div class="variety-card mint fade-in">
+        <img src="bottle.png" alt="Mint Flavour Clear Vibe Bottle" loading="lazy">
+        <h3>
+          Mint Flavour 
+          <img src="mint-icon.png" alt="Mint Icon" class="mint-icon">
+        </h3>
+        <p>Refreshing mineral water with a delicate touch of mint for a cool, revitalizing taste.</p>
+        <span class="price">₹15</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features-section">
+    <h2>Why Choose Clear Vibe?</h2>
+    <div class="features-grid">
+      <div class="feature-card slide-up">
+        💧 100% Natural Mineral Water
+      </div>
+      <div class="feature-card slide-up">
+        🌿 Fresh Mint Infusion
+      </div>
+      <div class="feature-card slide-up">
+        🌍 Eco-friendly Packaging
+      </div>
+      <div class="feature-card slide-up">
+        ⚙️ Ultra-Fine Filtration
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Stay Hydrated, Stay Fresh</h2>
+    <p>Order now and experience the Clear Vibe difference</p>
+    <a href="#" class="cta-button">Order Now</a>
+  </section>
+
+  <script>
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fade-in, .slide-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background: #f7fdff;
+  color: #222;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.header-logo {
+  height: 60px;
+}
+
+/* Hero Banner */
+.hero-banner {
+  position: relative;
+  background: linear-gradient(135deg, rgba(135,217,252,0.8), rgba(86,197,247,0.8)), url('bottle-bg.jpg') center/cover no-repeat;
+  padding: 5rem 1rem;
+  text-align: center;
+  color: white;
+}
+.hero-content {
+  backdrop-filter: blur(8px);
+  display: inline-block;
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.15);
+}
+.hero-banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.hero-banner p {
+  font-size: 1.2rem;
+}
+
+/* Varieties Section */
+.varieties-section {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.varieties-section h2 {
+  font-size: 2rem;
+  color: #0a3d62;
+  margin-bottom: 2rem;
+}
+.variety-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+.variety-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.variety-card img {
+  max-width: 150px;
+  margin-bottom: 1rem;
+}
+.variety-card h3 {
+  font-size: 1.2rem;
+  color: #0a3d62;
+  margin-bottom: 0.5rem;
+}
+.variety-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+.price {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #0088cc;
+}
+.variety-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.variety-card.mint {
+  border: 2px solid #32cd82;
+}
+.mint-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.variety-card.mint h3 {
+  color: #2aa76d;
+}
+
+/* Features Section */
+.features-section {
+  background: #f0fbff;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.feature-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #56c5f7, #32a6e3);
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.cta-button {
+  background: white;
+  color: #32a6e3;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.cta-button:hover {
+  background: #e0f7ff;
+  color: #0088cc;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.5);
+}
+
+/* Animations */
+.fade-in, .slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+.visible.fade-in, .visible.slide-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-banner h1 {
+    font-size: 1.8rem;
+  }
+  .hero-banner p {
+    font-size: 1rem;
+  }
+}
