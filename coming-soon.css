@@ -20,6 +20,10 @@ body {
   z-index: -1;
 }
 
+.header-logo {
+  height: 60px;
+}
+
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -89,3 +93,4 @@ p {
   .countdown div { padding: 10px; min-width: 55px; }
   .countdown span { font-size: 22px; }
 }
+
