@@ -12,3 +12,19 @@ function showSlides() {
 }
 
 window.onload = showSlides;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const exploreBtn = document.getElementById("explore-btn");
+  const dropdown = document.getElementById("explore-dropdown");
+
+  exploreBtn.addEventListener("click", () => {
+    dropdown.classList.toggle("show");
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!exploreBtn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.remove("show");
+    }
+  });
+});
