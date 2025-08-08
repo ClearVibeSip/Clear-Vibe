@@ -113,3 +113,86 @@ header {
 html {
   scroll-behavior: smooth;
 }
+
+/* Varieties Section */
+.varieties-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #f0fbff;
+}
+
+.varieties-section h2 {
+  font-size: 2rem;
+  color: #0a3d62;
+  margin-bottom: 2rem;
+}
+
+.variety-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.variety-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  max-width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.variety-card img {
+  max-width: 150px;
+  margin-bottom: 1rem;
+}
+
+.variety-card h3 {
+  font-size: 1.2rem;
+  color: #0a3d62;
+  margin-bottom: 0.5rem;
+}
+
+.variety-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.price {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #0088cc;
+}
+
+.variety-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Mint Card Special Styling */
+.variety-card.mint {
+  border: 2px solid #32cd82;
+}
+
+.mint-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.variety-card.mint h3 {
+  color: #2aa76d;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .variety-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
