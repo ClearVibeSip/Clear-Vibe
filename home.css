@@ -424,3 +424,64 @@ h3 {
   background: rgba(0, 196, 255, 0.5);
 }
 
+/* Keep your existing styles, then add these at the bottom */
+
+/* Auth buttons container */
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.auth-buttons .btn {
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+/* Login Button - Outline Style */
+.login-btn {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+.login-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Sign Up Button - Gradient Style */
+.signup-btn {
+  background: linear-gradient(90deg, #00bcd4, #2196f3);
+  color: white;
+}
+.signup-btn:hover {
+  background: linear-gradient(90deg, #00acc1, #1976d2);
+}
+
+/* Make header flexible & responsive */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .auth-buttons {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
