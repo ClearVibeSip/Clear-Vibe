@@ -8,14 +8,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="animated-bg"></div>
+  
   <div class="coming-soon-container">
     <img src="logo.png" alt="Clear Vibe Logo" class="logo" />
-    <h1>Thank You for Your Interest ! </h1>
+    <h1>Thank You for Your Interest!</h1>
     <p>Clear Vibe is coming to your city soon.</p>
+
+    <div class="countdown">
+      <div><span id="days">00</span><p>Days</p></div>
+      <div><span id="hours">00</span><p>Hours</p></div>
+      <div><span id="minutes">00</span><p>Minutes</p></div>
+      <div><span id="seconds">00</span><p>Seconds</p></div>
+    </div>
   </div>
 
+  <script>
+    const launchDate = new Date("2025-10-01T00:00:00").getTime();
 
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = launchDate - now;
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+
+      if (timeLeft < 0) {
+        document.querySelector(".countdown").innerHTML = "<h2>We're Live Now!</h2>";
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
-
-
