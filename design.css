@@ -22,23 +22,6 @@ header {
   height: 60px;
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 40px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #1a1a1a;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #0088cc;
-}
-
 /* ===== Base design (Laptop/Desktop) ===== */
 .design-container {
   display: flex;
@@ -65,6 +48,12 @@ nav ul li a:hover {
   height: auto;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
   animation: float 6s ease-in-out infinite;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.bottle-image img:hover {
+  transform: scale(1.05) rotate(-3deg);
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3));
 }
 
 .design-text {
