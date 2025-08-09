@@ -11,17 +11,26 @@ body {
 
 header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding: 20px 40px;
-  background-color: #a8e3fc;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  background-color: rgba(255 255 255 / 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background-color 0.3s ease;
 }
 
 .header-logo {
-  height: 50px;
+  height: 60px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
-
+.header-logo:hover {
+  transform: scale(1.1);
+}
 /* Main container */
 .design-container {
   padding: 2rem 4rem;
@@ -224,3 +233,4 @@ header {
     margin: 0 auto;
   }
 }
+
