@@ -2,47 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About-Clear Vibe</title>
-  <link rel="icon" href="logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - Clear Vibe</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="about.css" />
 </head>
+<body>
   <header>
     <img src="logo.png" alt="Clear Vibe Logo" class="header-logo" />
   </header>
-<main class="about-container">
-  <section class="about-section">
-     <link rel="stylesheet" href="about.css" />
-    <div class="about-text">
-      <h1>About Clear Vibe</h1>
-      <p>Clear Vibe is more than just a water bottle – it's a lifestyle. Designed for those who value purity, design, and innovation, our bottles combine cutting-edge materials with a sleek aesthetic to elevate your hydration experience.</p>
-      <p>Crafted with eco-friendly materials and precision engineering, every Clear Vibe bottle is a step toward a cleaner, more stylish future.</p>
-    </div>
-    <div class="owner-image">
-      <img src="founder-aman.jpg" alt="Founder – Aman Singh" />
-      <h3>Aman Singh<br><span>Founder & Designer</span></h3>
-    </div>
-  </section>
 
-  <!-- Our Promise Section -->
-  <section class="promise-section">
-    <h2>Our Promise</h2>
-    <div class="promise-features">
-      <div class="promise-item">
-        <h3>Pure</h3>
-        <p>Mineral-rich, crystal clear, and free from impurities.</p>
+  <main class="about-container">
+    <section class="about-section fade-slide-in">
+      <div class="about-text">
+        <h1>About Clear Vibe</h1>
+        <p>
+          Clear Vibe is more than just a water bottle – it's a lifestyle. Designed for those who value purity, design, and innovation, our bottles combine cutting-edge materials with a sleek aesthetic to elevate your hydration experience.
+        </p>
+        <p>
+          Crafted with eco-friendly materials and precision engineering, every Clear Vibe bottle is a step toward a cleaner, more stylish future.
+        </p>
       </div>
-      <div class="promise-item">
-        <h3>Fresh</h3>
-        <p>A refreshing taste that revives your senses instantly.</p>
+
+      <div class="owner-image" tabindex="0" aria-label="Founder Aman Singh">
+        <img src="founder-aman.jpg" alt="Founder – Aman Singh" />
+        <h3>Aman Singh<br /><span>Founder & Designer</span></h3>
       </div>
-      <div class="promise-item">
-        <h3>Flavour</h3>
-        <p>Choose from pure mineral water or mint-infused freshness.</p>
+    </section>
+
+    <section class="promise-section fade-slide-in">
+      <h2>Our Promise</h2>
+      <div class="promise-features">
+        <div class="promise-item" tabindex="0">
+          <h3>Pure</h3>
+          <p>Mineral-rich, crystal clear, and free from impurities.</p>
+        </div>
+        <div class="promise-item" tabindex="0">
+          <h3>Fresh</h3>
+          <p>A refreshing taste that revives your senses instantly.</p>
+        </div>
+        <div class="promise-item" tabindex="0">
+          <h3>Flavour</h3>
+          <p>Choose from pure mineral water or mint-infused freshness.</p>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-
-
+  <script>
+    // Simple fade-slide animation on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-slide-in').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+</body>
+</html>
