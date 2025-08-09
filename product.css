@@ -14,48 +14,57 @@ header {
   padding: 15px;
   background: white;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .header-logo {
   height: 60px;
+  transition: transform 0.3s ease;
+}
+.header-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 6px #32cd82);
 }
 
 /* Hero Banner */
 .hero-banner {
   position: relative;
-  background: linear-gradient(135deg, rgba(135,217,252,0.85), rgba(86,197,247,0.85)), url('bottle-bg.jpg') center/cover no-repeat;
+  background: linear-gradient(135deg, rgba(135,217,252,0.8), rgba(86,197,247,0.8)), url('bottle-bg.jpg') center/cover no-repeat;
   padding: 6rem 1rem 5rem;
   text-align: center;
   color: white;
-  border-radius: 20px;
+  border-radius: 18px;
   max-width: 900px;
   margin: 3rem auto 4rem;
-  box-shadow: 0 12px 30px rgba(50, 150, 255, 0.2);
-  backdrop-filter: saturate(180%) blur(12px);
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 12px 30px rgba(50, 150, 255, 0.15);
+  backdrop-filter: saturate(180%) blur(8px);
+  transition: box-shadow 0.4s ease;
+  cursor: default;
 }
 .hero-banner:hover {
-  box-shadow: 0 16px 40px rgba(50, 150, 255, 0.35);
+  box-shadow: 0 16px 40px rgba(50, 150, 255, 0.3);
 }
 .hero-content {
-  backdrop-filter: blur(8px);
   display: inline-block;
   padding: 2rem 3rem;
   border-radius: 25px;
   background: rgba(255,255,255,0.12);
-  box-shadow: 0 8px 30px rgba(255,255,255,0.2);
-  font-weight: 500;
+  box-shadow: 0 8px 30px rgba(255,255,255,0.18);
+  font-weight: 600;
+  user-select: none;
 }
 .hero-banner h1 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  letter-spacing: 1.1px;
-  text-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  letter-spacing: 1.2px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.35);
 }
 .hero-banner p {
   font-size: 1.3rem;
-  letter-spacing: 0.8px;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.25);
+  letter-spacing: 0.9px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
 /* Varieties Section */
@@ -72,7 +81,7 @@ header {
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.12);
 }
 .variety-cards {
   display: grid;
@@ -82,25 +91,48 @@ header {
 .variety-card {
   background: white;
   border-radius: 20px;
-  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.06);
   padding: 2rem 1.8rem 2.4rem;
-  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease, filter 0.4s ease;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.variety-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, #00c4ff55, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  border-radius: 20px;
+  z-index: 0;
+}
+.variety-card:hover::before {
+  opacity: 1;
 }
 .variety-card:hover {
-  transform: translateY(-8px) scale(1.06);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 18px 48px rgba(0,196,255,0.25);
+  filter: drop-shadow(0 0 12px #00c4ff99);
+  z-index: 10;
 }
 .variety-card img {
-  max-width: 170px;
+  max-width: 160px;
   margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
   transition: transform 0.4s ease;
 }
 .variety-card:hover img {
-  transform: scale(1.08);
+  transform: scale(1.07);
 }
 .variety-card h3 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: #0a3d62;
   margin-bottom: 0.8rem;
   font-weight: 700;
@@ -108,24 +140,30 @@ header {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  position: relative;
+  z-index: 1;
 }
 .variety-card p {
   font-size: 1rem;
   color: #555;
   margin-bottom: 1.4rem;
   line-height: 1.45;
+  position: relative;
+  z-index: 1;
 }
 .price {
   display: inline-block;
   font-weight: 700;
   font-size: 1.3rem;
-  color: #0088cc;
+  color: #00aaff;
   padding: 0.35rem 1rem;
   border-radius: 30px;
   background: #e0f7ff;
-  box-shadow: inset 0 0 10px #a0d8ff;
+  box-shadow: inset 0 0 10px #00aaff88;
   letter-spacing: 0.5px;
   user-select: none;
+  position: relative;
+  z-index: 1;
 }
 .variety-card.mint {
   border: 2.5px solid #32cd82;
@@ -176,6 +214,7 @@ header {
   line-height: 1.4;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
+  user-select: none;
 }
 .feature-card:hover {
   transform: translateY(-6px);
@@ -200,6 +239,7 @@ header {
   box-shadow: 0 20px 50px rgba(50, 150, 255, 0.3);
   user-select: none;
   transition: box-shadow 0.3s ease;
+  cursor: pointer;
 }
 .cta-section:hover {
   box-shadow: 0 25px 65px rgba(50, 150, 255, 0.45);
@@ -252,6 +292,7 @@ header {
   .hero-banner {
     padding: 4rem 1rem 3rem;
     margin: 2rem auto 3rem;
+    border-radius: 15px;
   }
   .hero-banner h1 {
     font-size: 2rem;
@@ -293,5 +334,135 @@ header {
   .cta-button {
     font-size: 1rem;
     padding: 0.85rem 2rem;
+  }
+}
+
+
+/* Existing styles remain unchanged ... */
+
+/* Variety Cards glowing and scale effect on hover and focus */
+.variety-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  outline-offset: 4px;
+}
+
+.variety-card:hover,
+.variety-card:focus-visible {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow:
+    0 0 10px 3px rgba(0, 140, 255, 0.3),
+    0 8px 20px rgba(0, 120, 255, 0.25);
+  animation: pulseGlow 2.5s infinite alternate;
+  cursor: pointer;
+}
+
+/* Mint variation */
+.variety-card.mint:hover,
+.variety-card.mint:focus-visible {
+  box-shadow:
+    0 0 12px 4px rgba(50, 205, 130, 0.4),
+    0 8px 22px rgba(34, 139, 34, 0.25);
+  animation: pulseGlowMint 2.5s infinite alternate;
+}
+
+/* CTA Button glowing and scaling on hover and focus */
+.cta-button {
+  background: white;
+  color: #32a6e3;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+  outline-offset: 4px;
+}
+
+.cta-button:hover,
+.cta-button:focus-visible {
+  background: #e0f7ff;
+  color: #0088cc;
+  box-shadow:
+    0 0 15px 6px rgba(0, 140, 255, 0.6),
+    0 6px 25px rgba(0, 120, 255, 0.4);
+  transform: scale(1.05);
+  cursor: pointer;
+  animation: pulseGlowCTA 2.5s infinite alternate;
+}
+
+/* Pulse glow keyframes */
+@keyframes pulseGlow {
+  0% {
+    box-shadow:
+      0 0 10px 3px rgba(0, 140, 255, 0.3),
+      0 8px 20px rgba(0, 120, 255, 0.25);
+  }
+  100% {
+    box-shadow:
+      0 0 20px 6px rgba(0, 140, 255, 0.5),
+      0 12px 30px rgba(0, 120, 255, 0.35);
+  }
+}
+
+@keyframes pulseGlowMint {
+  0% {
+    box-shadow:
+      0 0 12px 4px rgba(50, 205, 130, 0.4),
+      0 8px 22px rgba(34, 139, 34, 0.25);
+  }
+  100% {
+    box-shadow:
+      0 0 24px 8px rgba(50, 205, 130, 0.6),
+      0 12px 30px rgba(34, 139, 34, 0.35);
+  }
+}
+
+@keyframes pulseGlowCTA {
+  0% {
+    box-shadow:
+      0 0 15px 6px rgba(0, 140, 255, 0.6),
+      0 6px 25px rgba(0, 120, 255, 0.4);
+  }
+  100% {
+    box-shadow:
+      0 0 30px 12px rgba(0, 140, 255, 0.8),
+      0 8px 35px rgba(0, 120, 255, 0.5);
+  }
+}
+
+/* Focus outline for keyboard users */
+.variety-card:focus-visible,
+.cta-button:focus-visible {
+  outline: 2px solid #0099ff;
+  outline-offset: 4px;
+}
+
+/* Keep existing fade-in and slide-up animations */
+.fade-in,
+.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+.visible.fade-in,
+.visible.slide-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive tweaks for smaller devices */
+@media (max-width: 768px) {
+  .variety-cards {
+    grid-template-columns: 1fr;
+  }
+  .hero-banner h1 {
+    font-size: 2rem;
+  }
+  .hero-banner p {
+    font-size: 1rem;
   }
 }
