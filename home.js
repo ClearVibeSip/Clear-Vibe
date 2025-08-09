@@ -9,7 +9,7 @@ function showSlides() {
   slideIndex++;
   if (slideIndex > slides.length) { slideIndex = 1; }
   slides[slideIndex - 1].classList.add("active");
-  setTimeout(showSlides, 4000); // 4 seconds per slide
+  setTimeout(showSlides, 4000); // 4 seconds
 }
 
 window.onload = showSlides;
@@ -23,29 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdown.classList.toggle("show");
   });
 
-  // Close dropdown when clicking outside
   document.addEventListener("click", (e) => {
     if (!exploreBtn.contains(e.target) && !dropdown.contains(e.target)) {
       dropdown.classList.remove("show");
     }
   });
-});
 
-// CHATBOT
-document.addEventListener("DOMContentLoaded", () => {
+  // CHATBOT
   const chatbotIcon = document.getElementById('chatbot-icon');
   const chatbotBox = document.getElementById('chatbot-box');
   const chatbotClose = document.getElementById('chatbot-close');
   const messages = document.getElementById('chatbot-messages');
   const input = document.getElementById('chatbot-input');
-
-  chatbotIcon.addEventListener('click', () => {
-  console.log("Chatbot icon clicked");  // Add this for debug
-  chatbotBox.style.display = 'flex';
-  chatbotIcon.style.display = 'none';
-  input.focus();
-});
-
 
   const faq = {
     location: "Hi! Thank you for showing interest. We will come to your city soon!",
@@ -77,15 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
     chatbotBox.style.display = 'none';
     chatbotIcon.style.display = 'flex';
   });
-  
-const input = document.getElementById('chatbot-input');
+
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && input.value.trim() !== '') {
       const userQuestion = input.value.trim();
       addMessage(userQuestion, 'user');
       input.value = '';
 
-      // Show typing indicator
       addMessage("Bot is typing...", 'bot', true);
 
       const questionLower = userQuestion.toLowerCase();
@@ -99,16 +86,12 @@ const input = document.getElementById('chatbot-input');
       }
 
       setTimeout(() => {
-        // Remove typing indicator message
         const typingMsg = [...messages.querySelectorAll('.chatbot-message.bot')]
           .find(m => m.textContent === "Bot is typing...");
         if (typingMsg) typingMsg.remove();
 
-        // Show bot answer
         addMessage(answer, 'bot');
       }, 1000);
     }
   });
 });
-
-
