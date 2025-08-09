@@ -77,7 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
     chatbotBox.style.display = 'none';
     chatbotIcon.style.display = 'flex';
   });
-
+  
+const input = document.getElementById('chatbot-input');
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && input.value.trim() !== '') {
       const userQuestion = input.value.trim();
@@ -109,4 +110,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
