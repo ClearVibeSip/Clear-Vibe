@@ -58,12 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   chatbotIcon.addEventListener('click', () => {
     chatbotBox.style.display = 'flex';
-    chatbotIcon.style.display = 'none';
     input.focus();
   });
 
   chatbotClose.addEventListener('click', () => {
-    chatbotBox.style.display = 'none';
     chatbotIcon.style.display = 'flex';
   });
 
@@ -95,3 +93,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
