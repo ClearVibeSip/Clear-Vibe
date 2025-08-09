@@ -2,15 +2,13 @@ let slideIndex = 0;
 const slides = document.getElementsByClassName("slide");
 
 function showSlides() {
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].classList.remove("active");
+  for (let slide of slides) {
+    slide.classList.remove("active");
   }
   slideIndex++;
-  if (slideIndex > slides.length) {
-    slideIndex = 1;
-  }
+  if (slideIndex > slides.length) slideIndex = 1;
   slides[slideIndex - 1].classList.add("active");
-  setTimeout(showSlides, 4000); // Change slide every 4 seconds
+  setTimeout(showSlides, 4500);
 }
 
 window.onload = showSlides;
@@ -20,13 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropdown = document.getElementById("explore-dropdown");
 
   exploreBtn.addEventListener("click", () => {
+    const isExpanded = exploreBtn.getAttribute("aria-expanded") === "true";
+    exploreBtn.setAttribute("aria-expanded", !isExpanded);
     dropdown.classList.toggle("show");
   });
 
-  // Close dropdown if clicking outside
-  document.addEventListener("click", (event) => {
-    if (!exploreBtn.contains(event.target) && !dropdown.contains(event.target)) {
+  document.addEventListener("click", (e) => {
+    if (
+      !exploreBtn.contains(e.target) &&
+      !dropdown.contains(e.target)
+    ) {
       dropdown.classList.remove("show");
+      exploreBtn.setAttribute("aria-expanded", "false");
     }
   });
 });
