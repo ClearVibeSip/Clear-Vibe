@@ -6,9 +6,11 @@ function showSlides() {
     slides[i].classList.remove("active");
   }
   slideIndex++;
-  if (slideIndex > slides.length) { slideIndex = 1; }
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
   slides[slideIndex - 1].classList.add("active");
-  setTimeout(showSlides, 4000); // 4 seconds per slide
+  setTimeout(showSlides, 4000); // Change slide every 4 seconds
 }
 
 window.onload = showSlides;
@@ -21,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdown.classList.toggle("show");
   });
 
-  // Close dropdown when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!exploreBtn.contains(e.target) && !dropdown.contains(e.target)) {
+  // Close dropdown if clicking outside
+  document.addEventListener("click", (event) => {
+    if (!exploreBtn.contains(event.target) && !dropdown.contains(event.target)) {
       dropdown.classList.remove("show");
     }
   });
