@@ -57,3 +57,79 @@ input.addEventListener('keydown', (e) => {
   }
 });
 
+ const faq = {
+  location: "Hi ! Thank you for showing intrest. We will come to your city soon !",
+  products: "We offer a Varity of products you can check it out in the <li><a href="product.html">Products</a></li>section.",
+  contact: "You can contact us via email at clearvibesip@gmail.com.",
+  brand: "Our brand is all about quality and customer satisfaction.For further details you can read <li><a href="about.html">About</a></li> section."
+  launching: "Thank you for you patience ! We will live in your city soon.",
+};
+
+const chatbotIcon = document.getElementById('chatbot-icon');
+const chatbotBox = document.getElementById('chatbot-box');
+const chatbotClose = document.getElementById('chatbot-close');
+const messages = document.getElementById('chatbot-messages');
+const input = document.getElementById('chatbot-input');
+
+function addMessage(text, sender, isTyping = false) {
+  const msg = document.createElement('div');
+  msg.classList.add('chatbot-message');
+  msg.classList.add(sender);
+  msg.textContent = text;
+  if (isTyping) {
+    msg.style.fontStyle = 'italic';
+    msg.style.opacity = '0.7';
+  }
+  messages.appendChild(msg);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+chatbotIcon.addEventListener('click', () => {
+  chatbotBox.style.display = 'flex';
+  chatbotIcon.style.display = 'none';
+  input.focus();
+});
+
+chatbotClose.addEventListener('click', () => {
+  chatbotBox.style.display = 'none';
+  chatbotIcon.style.display = 'flex';
+});
+
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && input.value.trim() !== '') {
+    const userQuestion = input.value.trim();
+    addMessage(userQuestion, 'user');
+    input.value = '';
+
+    // Show typing indicator
+    addMessage("Bot is typing...", 'bot', true);
+
+    const questionLower = userQuestion.toLowerCase();
+    let answer = "Sorry, I didn't understand that. Can you try asking differently?";
+
+    for (const keyword in faq) {
+      if (questionLower.includes(keyword)) {
+        answer = faq[keyword];
+        break;
+      }
+    }
+
+    setTimeout(() => {
+      // Remove typing indicator message
+      const typingMsg = [...messages.querySelectorAll('.chatbot-message.bot')].find(m => m.textContent === "Bot is typing...");
+      if (typingMsg) typingMsg.remove();
+
+      // Show bot answer
+      addMessage(answer, 'bot');
+    }, 1000);
+  }
+});
+
+
+      setTimeout(() => addMessage(answer, 'bot'), 500);
+    }
+  });
+</script>
+
+
+
