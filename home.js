@@ -1,3 +1,4 @@
+// SLIDESHOW
 let slideIndex = 0;
 const slides = document.getElementsByClassName("slide");
 
@@ -13,6 +14,7 @@ function showSlides() {
 
 window.onload = showSlides;
 
+// EXPLORE MENU
 document.addEventListener("DOMContentLoaded", () => {
   const exploreBtn = document.getElementById("explore-btn");
   const dropdown = document.getElementById("explore-dropdown");
@@ -29,107 +31,73 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// CHATBOT
+document.addEventListener("DOMContentLoaded", () => {
+  const chatbotIcon = document.getElementById('chatbot-icon');
+  const chatbotBox = document.getElementById('chatbot-box');
+  const chatbotClose = document.getElementById('chatbot-close');
+  const messages = document.getElementById('chatbot-messages');
+  const input = document.getElementById('chatbot-input');
 
-input.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter' && input.value.trim() !== '') {
-    const userQuestion = input.value.trim();
-    addMessage(userQuestion, 'user');
-    input.value = '';
+  const faq = {
+    location: "Hi! Thank you for showing interest. We will come to your city soon!",
+    products: "We offer a variety of products you can check out in the Products section.",
+    contact: "You can contact us via email at clearvibesip@gmail.com.",
+    brand: "Our brand is all about quality and customer satisfaction. For further details, you can read the About section.",
+    launching: "Thank you for your patience! We will be live in your city soon."
+  };
 
-    addMessage("Bot is typing...", 'bot', true); // true = isTyping flag
-
-    const questionLower = userQuestion.toLowerCase();
-    let answer = "Sorry, I didn't understand that. Can you try asking differently?";
-
-    for (const keyword in faq) {
-      if (questionLower.includes(keyword)) {
-        answer = faq[keyword];
-        break;
-      }
+  function addMessage(text, sender, isTyping = false) {
+    const msg = document.createElement('div');
+    msg.classList.add('chatbot-message', sender);
+    msg.textContent = text;
+    if (isTyping) {
+      msg.style.fontStyle = 'italic';
+      msg.style.opacity = '0.7';
     }
-
-    // Remove typing message before answer
-    setTimeout(() => {
-      const typingMsg = [...messages.querySelectorAll('.chatbot-message.bot')].find(m => m.textContent === "Bot is typing...");
-      if (typingMsg) typingMsg.remove();
-      addMessage(answer, 'bot');
-    }, 1000);
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
   }
-});
 
- const faq = {
-  location: "Hi ! Thank you for showing intrest. We will come to your city soon !",
-  products: "We offer a Varity of products you can check it out in the <li><a href="product.html">Products</a></li>section.",
-  contact: "You can contact us via email at clearvibesip@gmail.com.",
-  brand: "Our brand is all about quality and customer satisfaction.For further details you can read <li><a href="about.html">About</a></li> section."
-  launching: "Thank you for you patience ! We will live in your city soon.",
-};
+  chatbotIcon.addEventListener('click', () => {
+    chatbotBox.style.display = 'flex';
+    chatbotIcon.style.display = 'none';
+    input.focus();
+  });
 
-const chatbotIcon = document.getElementById('chatbot-icon');
-const chatbotBox = document.getElementById('chatbot-box');
-const chatbotClose = document.getElementById('chatbot-close');
-const messages = document.getElementById('chatbot-messages');
-const input = document.getElementById('chatbot-input');
+  chatbotClose.addEventListener('click', () => {
+    chatbotBox.style.display = 'none';
+    chatbotIcon.style.display = 'flex';
+  });
 
-function addMessage(text, sender, isTyping = false) {
-  const msg = document.createElement('div');
-  msg.classList.add('chatbot-message');
-  msg.classList.add(sender);
-  msg.textContent = text;
-  if (isTyping) {
-    msg.style.fontStyle = 'italic';
-    msg.style.opacity = '0.7';
-  }
-  messages.appendChild(msg);
-  messages.scrollTop = messages.scrollHeight;
-}
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && input.value.trim() !== '') {
+      const userQuestion = input.value.trim();
+      addMessage(userQuestion, 'user');
+      input.value = '';
 
-chatbotIcon.addEventListener('click', () => {
-  chatbotBox.style.display = 'flex';
-  chatbotIcon.style.display = 'none';
-  input.focus();
-});
+      // Show typing indicator
+      addMessage("Bot is typing...", 'bot', true);
 
-chatbotClose.addEventListener('click', () => {
-  chatbotBox.style.display = 'none';
-  chatbotIcon.style.display = 'flex';
-});
+      const questionLower = userQuestion.toLowerCase();
+      let answer = "Sorry, I didn't understand that. Can you try asking differently?";
 
-input.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter' && input.value.trim() !== '') {
-    const userQuestion = input.value.trim();
-    addMessage(userQuestion, 'user');
-    input.value = '';
-
-    // Show typing indicator
-    addMessage("Bot is typing...", 'bot', true);
-
-    const questionLower = userQuestion.toLowerCase();
-    let answer = "Sorry, I didn't understand that. Can you try asking differently?";
-
-    for (const keyword in faq) {
-      if (questionLower.includes(keyword)) {
-        answer = faq[keyword];
-        break;
+      for (const keyword in faq) {
+        if (questionLower.includes(keyword)) {
+          answer = faq[keyword];
+          break;
+        }
       }
-    }
 
-    setTimeout(() => {
-      // Remove typing indicator message
-      const typingMsg = [...messages.querySelectorAll('.chatbot-message.bot')].find(m => m.textContent === "Bot is typing...");
-      if (typingMsg) typingMsg.remove();
+      setTimeout(() => {
+        // Remove typing indicator message
+        const typingMsg = [...messages.querySelectorAll('.chatbot-message.bot')]
+          .find(m => m.textContent === "Bot is typing...");
+        if (typingMsg) typingMsg.remove();
 
-      // Show bot answer
-      addMessage(answer, 'bot');
-    }, 1000);
-  }
-});
-
-
-      setTimeout(() => addMessage(answer, 'bot'), 500);
+        // Show bot answer
+        addMessage(answer, 'bot');
+      }, 1000);
     }
   });
-</script>
-
-
-
+});
