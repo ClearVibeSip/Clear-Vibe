@@ -26,6 +26,36 @@ header {
   transform: scale(1.05);
   filter: drop-shadow(0 0 6px #32cd82);
 }
+#back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #00bcd4, #2196f3);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(33, 150, 243, 0.6);
+  transition: 
+    background 0.3s ease, 
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+  z-index: 10000;
+  user-select: none;
+}
+
+#back-button:hover {
+  background: linear-gradient(135deg, #2196f3, #00bcd4);
+  box-shadow: 0 10px 25px rgba(33, 150, 243, 0.8);
+  transform: scale(1.05);
+}
+
+#back-button:active {
+  transform: scale(0.95);
+}
 
 /* Hero Banner */
 .hero-banner {
@@ -466,3 +496,4 @@ header {
     font-size: 1rem;
   }
 }
+
