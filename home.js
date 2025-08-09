@@ -8,7 +8,7 @@ function showSlides() {
   slideIndex++;
   if (slideIndex > slides.length) slideIndex = 1;
   slides[slideIndex - 1].classList.add("active");
-  setTimeout(showSlides, 4500);
+  setTimeout(showSlides, 4000);
 }
 
 window.onload = showSlides;
@@ -18,18 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropdown = document.getElementById("explore-dropdown");
 
   exploreBtn.addEventListener("click", () => {
-    const isExpanded = exploreBtn.getAttribute("aria-expanded") === "true";
-    exploreBtn.setAttribute("aria-expanded", !isExpanded);
     dropdown.classList.toggle("show");
   });
 
   document.addEventListener("click", (e) => {
-    if (
-      !exploreBtn.contains(e.target) &&
-      !dropdown.contains(e.target)
-    ) {
+    if (!exploreBtn.contains(e.target) && !dropdown.contains(e.target)) {
       dropdown.classList.remove("show");
-      exploreBtn.setAttribute("aria-expanded", "false");
     }
   });
 });
