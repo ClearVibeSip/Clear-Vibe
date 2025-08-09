@@ -28,3 +28,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && input.value.trim() !== '') {
+    const userQuestion = input.value.trim();
+    addMessage(userQuestion, 'user');
+    input.value = '';
+
+    addMessage("Bot is typing...", 'bot', true); // true = isTyping flag
+
+    const questionLower = userQuestion.toLowerCase();
+    let answer = "Sorry, I didn't understand that. Can you try asking differently?";
+
+    for (const keyword in faq) {
+      if (questionLower.includes(keyword)) {
+        answer = faq[keyword];
+        break;
+      }
+    }
+
+    // Remove typing message before answer
+    setTimeout(() => {
+      const typingMsg = [...messages.querySelectorAll('.chatbot-message.bot')].find(m => m.textContent === "Bot is typing...");
+      if (typingMsg) typingMsg.remove();
+      addMessage(answer, 'bot');
+    }, 1000);
+  }
+});
+
