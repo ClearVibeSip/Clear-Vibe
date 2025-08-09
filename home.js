@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-  let slideIndex = 0;
-  const slides = document.getElementsByClassName("slide");
+let slideIndex = 0;
+const slides = document.getElementsByClassName("slide");
 
 function showSlides() {
   for (let i = 0; i < slides.length; i++) {
@@ -14,6 +13,7 @@ function showSlides() {
 
 window.onload = showSlides;
 
+document.addEventListener("DOMContentLoaded", () => {
   const exploreBtn = document.getElementById("explore-btn");
   const dropdown = document.getElementById("explore-dropdown");
 
@@ -21,10 +21,10 @@ window.onload = showSlides;
     dropdown.classList.toggle("show");
   });
 
+  // Close dropdown when clicking outside
   document.addEventListener("click", (e) => {
     if (!exploreBtn.contains(e.target) && !dropdown.contains(e.target)) {
       dropdown.classList.remove("show");
     }
   });
 });
-
