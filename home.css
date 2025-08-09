@@ -317,6 +317,8 @@ nav ul li a:hover {
     bottom: 70px;
     right: 5vw;
   }
+
+  
   #chatbot-icon {
   position: fixed;
   bottom: 20px;
@@ -331,8 +333,6 @@ nav ul li a:hover {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
   z-index: 200;
 }
 
@@ -368,6 +368,7 @@ nav ul li a:hover {
   font-style: normal;
   opacity: 1;
 }
+
 
 
 
