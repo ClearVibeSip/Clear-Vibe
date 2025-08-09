@@ -318,8 +318,8 @@ nav ul li a:hover {
     right: 5vw;
   }
   #chatbot-icon {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     font-size: 24px;
   }
   #chatbot-tooltip {
@@ -349,3 +349,4 @@ nav ul li a:hover {
   font-style: normal;
   opacity: 1;
 }
+
