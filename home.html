@@ -38,126 +38,28 @@
       <p>Experience the next generation of hydration with Clear Vibe. Designed for purity, built for style.</p>
     </main>
   </div>
-  <!-- Chatbot icon and chatbox container -->
-<style>
-  #chatbot-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #007bff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 30px;
-    z-index: 9999;
-    transition: background 0.3s;
-  }
-  #chatbot-icon:hover {
-    background: #0056b3;
-  }
-  #chatbot-tooltip {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    background: #333;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 14px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-    white-space: nowrap;
-    z-index: 9999;
-  }
-  #chatbot-icon:hover + #chatbot-tooltip {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  #chatbot-box {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 350px;
-    max-height: 400px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    display: none;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
-    z-index: 9999;
-  }
-  #chatbot-header {
-    background: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 8px 8px 0 0;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  #chatbot-close {
-    cursor: pointer;
-    font-weight: normal;
-    font-size: 20px;
-  }
-  #chatbot-messages {
-    padding: 10px;
-    flex-grow: 1;
-    overflow-y: auto;
-    background: #f9f9f9;
-  }
-  .chatbot-message {
-    margin: 10px 0;
-    max-width: 80%;
-    padding: 8px 12px;
-    border-radius: 15px;
-    clear: both;
-  }
-  .chatbot-message.user {
-    background: #007bff;
-    color: white;
-    float: right;
-  }
-  .chatbot-message.bot {
-    background: #e1e1e1;
-    color: black;
-    float: left;
-  }
-  #chatbot-input {
-    border: none;
-    border-top: 1px solid #ccc;
-    padding: 10px;
-    font-size: 16px;
-    outline: none;
-  }
-</style>
-
-<div id="chatbot-icon" title="Chat with us!">💬</div>
-<div id="chatbot-tooltip">How may I help you?</div>
-
-<div id="chatbot-box">
-  <div id="chatbot-header">
-    Chat with us
-    <span id="chatbot-close" title="Close">&times;</span>
+  <!-- Chatbot Icon -->
+  <div id="chatbot-icon" title="Chat with us" style="position: fixed; bottom: 20px; right: 20px; cursor: pointer; z-index: 200;">
+    💬
   </div>
-  <div id="chatbot-messages"></div>
-  <input type="text" id="chatbot-input" placeholder="Type your question here..."/>
-</div>
+
+  <!-- Chatbot Box -->
+  <div id="chatbot-box" style="display:none; position: fixed; bottom: 80px; right: 20px; width: 320px; max-width: 90vw; background: #0a3d62; color: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); flex-direction: column; z-index: 201; font-family: 'Outfit', sans-serif; font-weight: 300;">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.2);">
+      <strong>ClearVibes Bot</strong>
+      <button id="chatbot-close" style="background: transparent; border: none; color: white; font-size: 20px; cursor: pointer;">×</button>
+    </div>
+    <div id="chatbot-messages" style="padding: 16px; height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
+      <!-- Messages will appear here -->
+    </div>
+    <input id="chatbot-input" type="text" placeholder="Type your message..." autocomplete="off" style="padding: 10px 16px; border: none; border-top: 1px solid rgba(255,255,255,0.2); font-size: 14px; color: #222; border-radius: 0 0 12px 12px; outline: none; width: 100%;" />
+  </div>
 
 
   <script src="home.js"></script>
 </body>
 </html>
+
 
 
 
