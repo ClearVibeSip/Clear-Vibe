@@ -39,6 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const messages = document.getElementById('chatbot-messages');
   const input = document.getElementById('chatbot-input');
 
+  chatbotIcon.addEventListener('click', () => {
+  console.log("Chatbot icon clicked");  // Add this for debug
+  chatbotBox.style.display = 'flex';
+  chatbotIcon.style.display = 'none';
+  input.focus();
+});
+
+
   const faq = {
     location: "Hi! Thank you for showing interest. We will come to your city soon!",
     products: "We offer a variety of products you can check out in the Products section.",
@@ -101,3 +109,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
