@@ -30,67 +30,73 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // CHATBOT
-  const chatbotIcon = document.getElementById('chatbot-icon');
-  const chatbotBox = document.getElementById('chatbot-box');
-  const chatbotClose = document.getElementById('chatbot-close');
-  const messages = document.getElementById('chatbot-messages');
-  const input = document.getElementById('chatbot-input');
+// CHATBOT
+const chatbotIcon = document.getElementById('chatbot-icon');
+const chatbotBox = document.getElementById('chatbot-box');
+const chatbotClose = document.getElementById('chatbot-close');
+const messages = document.getElementById('chatbot-messages');
+const input = document.getElementById('chatbot-input');
 
-  const faq = {
-    location: "Hi! Thank you for showing interest. We will come to your city soon!",
-    products: "We offer a variety of products you can check out in the Products section.",
-    contact: "You can contact us via email at clearvibesip@gmail.com.",
-    brand: "Our brand is all about quality and customer satisfaction. For further details, you can read the About section.",
-    launching: "Thank you for your patience! We will be live in your city soon."
-  };
+const faq = {
+  location: "Hi! Thank you for showing interest. We will come to your city soon!",
+  products: "We offer a variety of products you can check out in the Products section.",
+  contact: "You can contact us via email at clearvibesip@gmail.com.",
+  brand: "Our brand is all about quality and customer satisfaction. For further details, you can read the About section.",
+  launching: "Thank you for your patience! We will be live in your city soon."
+};
 
-  function addMessage(text, sender, isTyping = false) {
-    const msg = document.createElement('div');
-    msg.classList.add('chatbot-message', sender);
-    msg.textContent = text;
-    if (isTyping) {
-      msg.style.fontStyle = 'italic';
-      msg.style.opacity = '0.7';
-    }
-    messages.appendChild(msg);
-    messages.scrollTop = messages.scrollHeight;
+function addMessage(text, sender, isTyping = false) {
+  const msg = document.createElement('div');
+  msg.classList.add('chatbot-message', sender);
+  msg.textContent = text;
+  if (isTyping) {
+    msg.style.fontStyle = 'italic';
+    msg.style.opacity = '0.7';
   }
+  messages.appendChild(msg);
+  messages.scrollTop = messages.scrollHeight;
+}
 
-  chatbotIcon.addEventListener('click', () => {
-    chatbotBox.style.display = 'flex';
-    input.focus();
-  });
+// Always show icon at start
+chatbotIcon.style.display = 'flex';
 
-  chatbotClose.addEventListener('click', () => {
-    chatbotIcon.style.display = 'flex';
-  });
-
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && input.value.trim() !== '') {
-      const userQuestion = input.value.trim();
-      addMessage(userQuestion, 'user');
-      input.value = '';
-
-      addMessage("Bot is typing...", 'bot', true);
-
-      const questionLower = userQuestion.toLowerCase();
-      let answer = "Sorry, I didn't understand that. Can you try asking differently?";
-
-      for (const keyword in faq) {
-        if (questionLower.includes(keyword)) {
-          answer = faq[keyword];
-          break;
-        }
-      }
-
-      setTimeout(() => {
-        const typingMsg = [...messages.querySelectorAll('.chatbot-message.bot')]
-          .find(m => m.textContent === "Bot is typing...");
-        if (typingMsg) typingMsg.remove();
-
-        addMessage(answer, 'bot');
-      }, 1000);
-    }
-  });
+chatbotIcon.addEventListener('click', () => {
+  chatbotBox.style.display = 'flex';
+  chatbotIcon.style.display = 'none'; // hide icon when box is open
+  input.focus();
 });
+
+chatbotClose.addEventListener('click', () => {
+  chatbotBox.style.display = 'none';
+  chatbotIcon.style.display = 'flex'; // show icon again when box closes
+});
+
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && input.value.trim() !== '') {
+    const userQuestion = input.value.trim();
+    addMessage(userQuestion, 'user');
+    input.value = '';
+
+    addMessage("Bot is typing...", 'bot', true);
+
+    const questionLower = userQuestion.toLowerCase();
+    let answer = "Sorry, I didn't understand that. Can you try asking differently?";
+
+    for (const keyword in faq) {
+      if (questionLower.includes(keyword)) {
+        answer = faq[keyword];
+        break;
+      }
+    }
+
+    setTimeout(() => {
+      const typingMsg = [...messages.querySelectorAll('.chatbot-message.bot')]
+        .find(m => m.textContent === "Bot is typing...");
+      if (typingMsg) typingMsg.remove();
+
+      addMessage(answer, 'bot');
+    }, 1000);
+  }
+});
+
 
