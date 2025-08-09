@@ -2,17 +2,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let slideIndex = 0;
   const slides = document.getElementsByClassName("slide");
 
-  function showSlides() {
-    for (let slide of slides) {
-      slide.classList.remove("active");
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) slideIndex = 1;
-    slides[slideIndex - 1].classList.add("active");
-    setTimeout(showSlides, 4000);
+function showSlides() {
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
   }
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1; }
+  slides[slideIndex - 1].classList.add("active");
+  setTimeout(showSlides, 4000); // 4 seconds per slide
+}
 
-  showSlides();
+window.onload = showSlides;
 
   const exploreBtn = document.getElementById("explore-btn");
   const dropdown = document.getElementById("explore-dropdown");
@@ -27,3 +27,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
