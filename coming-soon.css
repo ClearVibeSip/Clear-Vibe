@@ -9,18 +9,18 @@ body {
   align-items: center;
   position: relative;
 }
+
 #back-button {
   position: fixed;
   top: 20px;
   left: 20px;
   background: linear-gradient(135deg, #00bcd4, #2196f3);
   color: white;
-  border: none;
+  text-decoration: none;
   padding: 12px 24px;
   font-size: 16px;
   font-weight: 600;
   border-radius: 30px;
-  cursor: pointer;
   box-shadow: 0 6px 15px rgba(33, 150, 243, 0.6);
   transition: 
     background 0.3s ease, 
@@ -28,6 +28,7 @@ body {
     transform 0.2s ease;
   z-index: 10000;
   user-select: none;
+  display: inline-block;
 }
 
 #back-button:hover {
@@ -39,6 +40,7 @@ body {
 #back-button:active {
   transform: scale(0.95);
 }
+
 
 .animated-bg {
   position: absolute;
@@ -123,5 +125,6 @@ p {
   .countdown div { padding: 10px; min-width: 55px; }
   .countdown span { font-size: 22px; }
 }
+
 
 
