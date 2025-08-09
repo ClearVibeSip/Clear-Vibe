@@ -2,95 +2,154 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Products – Clear Vibe</title>
   <link rel="icon" href="logo.png" type="image/png" />
   <link rel="stylesheet" href="product.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Clear Vibe Logo" class="header-logo" />
+  <header role="banner">
+    <img
+      src="logo.png"
+      alt="Clear Vibe Logo"
+      class="header-logo"
+      aria-label="Clear Vibe Home"
+      tabindex="0"
+    />
   </header>
 
   <!-- Hero Banner -->
-  <section class="hero-banner">
+  <section
+    class="hero-banner"
+    role="region"
+    aria-label="Hero banner presenting premium varieties"
+  >
     <div class="hero-content">
-      <h1>Discover Our Premium Varieties</h1>
-      <p>Pure refreshment, crafted for every taste and lifestyle</p>
+      <h1 tabindex="0">Discover Our Premium Varieties</h1>
+      <p tabindex="0">Pure refreshment, crafted for every taste</p>
     </div>
   </section>
 
   <!-- Varieties Section -->
-  <section class="varieties-section container">
-    <h2>Our Signature Varieties</h2>
+  <section
+    class="varieties-section"
+    role="region"
+    aria-labelledby="varieties-title"
+  >
+    <h2 id="varieties-title" tabindex="0">Our Varieties</h2>
     <div class="variety-cards">
       <!-- Normal Bottle -->
-      <div class="variety-card fade-in">
-        <img src="bottle.png" alt="Pure Mineral Water Bottle" loading="lazy" />
+      <article class="variety-card fade-in" tabindex="0" role="article" aria-label="Pure Mineral Water, price 10 rupees">
+        <img
+          src="bottle.png"
+          alt="Clear Vibe Pure Mineral Water Bottle"
+          loading="lazy"
+          aria-hidden="true"
+        />
         <h3>Pure Mineral Water</h3>
-        <p>Crystal-clear mineral water, purified to the highest standards for your everyday refreshment.</p>
-        <span class="price">₹10</span>
-      </div>
+        <p>Crystal-clear mineral water, purified to the highest standards. Ideal for daily refreshment.</p>
+        <span class="price" aria-label="Price 10 rupees">₹10</span>
+      </article>
 
       <!-- Mint Flavour Bottle -->
-      <div class="variety-card mint fade-in">
-        <img src="bottle.png" alt="Mint Flavour Water Bottle" loading="lazy" />
+      <article class="variety-card mint fade-in" tabindex="0" role="article" aria-label="Mint Flavour Mineral Water, price 15 rupees">
+        <img
+          src="bottle.png"
+          alt="Clear Vibe Mint Flavour Bottle"
+          loading="lazy"
+          aria-hidden="true"
+        />
         <h3>
-          Mint Flavour 
-          <img src="mint-icon.png" alt="Mint Icon" class="mint-icon" />
+          Mint Flavour
+          <img
+            src="mint-icon.png"
+            alt="Mint leaf icon"
+            class="mint-icon"
+            aria-hidden="true"
+          />
         </h3>
-        <p>Refreshing mineral water infused with a subtle hint of mint for a cool, revitalizing experience.</p>
-        <span class="price">₹15</span>
-      </div>
+        <p>Refreshing mineral water with a delicate touch of mint for a cool, revitalizing taste.</p>
+        <span class="price" aria-label="Price 15 rupees">₹15</span>
+      </article>
     </div>
   </section>
 
-  <!-- Benefits Section -->
-  <section class="benefits-section container">
-    <h2>Why Choose Clear Vibe?</h2>
-    <div class="benefits-grid">
-      <div class="benefit-card slide-up">
-        <span class="icon">💧</span>
-        <h3>100% Natural Mineral Water</h3>
-        <p>Pure and untouched, straight from nature’s finest sources.</p>
+  <!-- Features Section -->
+  <section
+    class="features-section"
+    role="region"
+    aria-labelledby="features-title"
+  >
+    <h2 id="features-title" tabindex="0">Why Choose Clear Vibe?</h2>
+    <div class="features-grid">
+      <div
+        class="feature-card slide-up"
+        tabindex="0"
+        role="listitem"
+        aria-label="100 percent natural mineral water"
+      >
+        💧 100% Natural Mineral Water
       </div>
-      <div class="benefit-card slide-up">
-        <span class="icon">🌿</span>
-        <h3>Fresh Mint Infusion</h3>
-        <p>A subtle, invigorating touch that enhances every sip.</p>
+      <div
+        class="feature-card slide-up"
+        tabindex="0"
+        role="listitem"
+        aria-label="Fresh mint infusion"
+      >
+        🌿 Fresh Mint Infusion
       </div>
-      <div class="benefit-card slide-up">
-        <span class="icon">🌍</span>
-        <h3>Eco-Friendly Packaging</h3>
-        <p>Committed to sustainability with biodegradable and recyclable materials.</p>
+      <div
+        class="feature-card slide-up"
+        tabindex="0"
+        role="listitem"
+        aria-label="Eco friendly packaging"
+      >
+        🌍 Eco-friendly Packaging
       </div>
-      <div class="benefit-card slide-up">
-        <span class="icon">⚙️</span>
-        <h3>Ultra-Fine Filtration</h3>
-        <p>Ensures purity and safety with state-of-the-art filtration technology.</p>
+      <div
+        class="feature-card slide-up"
+        tabindex="0"
+        role="listitem"
+        aria-label="Ultra fine filtration"
+      >
+        ⚙️ Ultra-Fine Filtration
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section container">
-    <h2>Stay Hydrated, Stay Fresh</h2>
-    <p>Order now and experience the Clear Vibe difference — premium hydration, delivered.</p>
-    <a href="coming-soon.html" class="cta-button">Order Now</a>
+  <section
+    class="cta-section"
+    role="region"
+    aria-label="Call to action for ordering Clear Vibe products"
+  >
+    <h2 tabindex="0">Stay Hydrated, Stay Fresh</h2>
+    <p tabindex="0">Order now and experience the Clear Vibe difference</p>
+    <a href="coming-soon.html" class="cta-button" role="button" tabindex="0"
+      >Order Now</a
+    >
   </section>
 
   <script>
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
+    // Intersection Observer for fade-in/slide-up animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
 
-    document.querySelectorAll('.fade-in, .slide-up').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in, .slide-up').forEach((el) =>
+      observer.observe(el)
+    );
   </script>
 </body>
 </html>
