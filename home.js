@@ -39,7 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
     products: "We offer a variety of products you can check out in the Products section.",
     contact: "You can contact us via email at clearvibesip@gmail.com.",
     brand: "Our brand is all about quality and customer satisfaction. For further details, you can read the About section.",
-    launching: "Thank you for your patience! We will be live in your city soon."
+    launching: "Thank you for your patience! Clear Vibe is launching on 1 OCTOBER 2025 only in listed cities. The list is available in Countdown section on 15 SEPTEMBER 2025",
+    about: "Clear Vibe is specially created to provide pure water with minireals with some delighful taste.",
+    Founder: "Aman Singh founded Clear Vibe to provide pure water in delightful taste. For further details you can read About section.",
+    Seller: "The form for Dealership of Clear Vibe is relised on 5 OCTOBER 2025, Candidated can fill the form to get Dealership in there City." 
+    
   };
 
   function addMessage(text, sender, isTyping = false) {
@@ -91,3 +95,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
