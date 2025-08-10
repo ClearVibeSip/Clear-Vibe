@@ -312,29 +312,40 @@ nav ul li a:hover {
 } 
 
 @media (max-width: 400px) {
-  #chatbot-box {
-    width: 90vw;
-    bottom: 70px;
-    right: 5vw;
-  }
 
-  
-  #chatbot-icon {
+  /* Chatbot Icon - Always visible by default */
+#chatbot-icon {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #0a3d62; /* Deep blue background */
+  background: #4CAF50;
   color: white;
-  font-size: 28px; /* Chat bubble size */
-  width: 60px;
-  height: 60px;
+  font-size: 28px;
+  padding: 15px;
   border-radius: 50%;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  z-index: 200;
+  z-index: 9999;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
+
+/* Chatbot Box */
+#chatbot-box {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  z-index: 10000;
+}
+
 
 #chatbot-icon:hover {
   background-color: #1e5f94; /* Lighter blue on hover */
@@ -368,6 +379,9 @@ nav ul li a:hover {
   font-style: normal;
   opacity: 1;
 }
+
+
+
 
 
 
