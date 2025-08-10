@@ -9,37 +9,44 @@
 <body>
 <a href="javascript:history.back()" id="back-button" aria-label="Go back" title="Go back">← Back</a>
 
-  <header class="cv-header">
-    <h1>💎 Your CV Points</h1>
-    <p class="tagline">Clear Vibe Rewards – Premium Benefits Await</p>
+   <header class="cv-header">
+    <h1>💎 Clear Vibe Points</h1>
+    <p class="tagline">Earn • Redeem • Enjoy Premium Rewards</p>
   </header>
 
-  <main>
-    <section class="points-display">
-     <span>💎 <span class="cv-points-display">0</span> CV</span>
+  <main class="cv-container">
+    <div class="cv-balance-card">
+      <h2>Your Balance</h2>
+      <p class="balance"><span class="cv-points-display">0</span> CV</p>
+    </div>
 
-    </section>
-
-    <section class="redeem-section">
-      <h2>Redeem a Code</h2>
-      <p>Enter your code below to add CV Points to your account.</p>
+    <div class="cv-section">
+      <h3>Redeem a Code</h3>
       <div class="redeem-box">
-        <input type="text" id="redeemCode" placeholder="Enter your code here" />
+        <input type="text" id="redeemCode" placeholder="Enter your code">
         <button id="redeemBtn">Redeem</button>
       </div>
-      <p id="redeemMessage"></p>
-    </section>
+      <p class="note">Enter a valid code to earn CV Points instantly!</p>
+    </div>
+
+    <div class="cv-section">
+      <h3>Use Your Points</h3>
+      <div class="reward-card">
+        <p>🎁 50 CV Points - 10% Off Coupon</p>
+        <button class="redeemReward" data-points="50">Redeem</button>
+      </div>
+      <div class="reward-card">
+        <p>🎁 100 CV Points - Free Shipping</p>
+        <button class="redeemReward" data-points="100">Redeem</button>
+      </div>
+    </div>
   </main>
 
-  <footer>
-    <p>© 2025 Clear Vibe. All rights reserved.</p>
-  </footer>
-
-  <script src="cv-points.js"></script>
   <script src="cv-shared.js"></script>
-
+  <script src="cv-points.js"></script>
 </body>
 </html>
+
 
 
 
