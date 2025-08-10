@@ -1,0 +1,143 @@
+/* Premium CV Points Page Styles */
+.cv-points-section {
+  background: #0a3d62;
+  padding: 40px 60px;
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  border-radius: 12px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-points-section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cv-points {
+  text-align: center;
+}
+
+.cv-points h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cv-points span {
+  font-size: 2rem;
+  color: #00c4ff; /* Highlight CV Points value */
+  font-weight: 700;
+}
+
+.redeem-section {
+  margin-top: 30px;
+  background: #ffffff;
+  color: #0a3d62;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.redeem-section h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.redeem-section p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+#redeem-code {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 300px;
+}
+
+#redeem-btn {
+  background-color: #00c4ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#redeem-btn:hover {
+  background-color: #0098cc;
+  transform: scale(1.05);
+}
+
+.redeem-result {
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.redeem-options {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.redeem-options h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.redeem-options ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.redeem-options li {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.premium-btn {
+  background-color: #00c4ff;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.premium-btn:hover {
+  background-color: #0098cc;
+  transform: scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .cv-points-section {
+    padding: 20px;
+  }
+
+  .redeem-section,
+  .redeem-options {
+    width: 100%;
+  }
+
+  #redeem-code {
+    max-width: 80%;
+  }
+}
