@@ -273,46 +273,9 @@ nav ul li a:hover {
   background: rgba(0, 196, 255, 0.5);
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .explore-menu {
-    width: 100%;
-    text-align: center;
-  }
 
-  #explore-btn {
-    width: 100%;
-    font-size: 1.1rem;
-    padding: 14px;
-    border-radius: 14px;
-  }
 
-  #explore-dropdown {
-    width: 100%;
-    left: 0;
-    top: calc(100% + 10px);
-    border-radius: 14px;
-  }
-
-  #explore-dropdown li a {
-    padding: 16px;
-    font-size: 1rem;
-  }
-
-  .auth-buttons {
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  header {
-    flex-direction: column;
-    align-items: center;
-  }
-} 
-
-@media (max-width: 400px) {
- /* Chatbot */
+/* Chatbot */
 #chatbot-icon {
   position: fixed;
   bottom: 20px;
@@ -398,3 +361,4 @@ nav ul li a:hover {
     width: 90%;
   }
 }
+
