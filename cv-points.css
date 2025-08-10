@@ -25,20 +25,17 @@ body {
 
 /* Header - Logo */
 header {
-  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 20px;
-}
-
-.header-logo {
-  height: 40px;
-  width: auto;
-  transition: transform 0.3s ease;
-}
-
-.header-logo:hover {
-  transform: scale(1.05);
+  background-color: rgba(255 255 255 / 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background-color 0.3s ease;
 }
 #back-button {
   position: fixed;
@@ -69,6 +66,16 @@ header {
 
 #back-button:active {
   transform: scale(0.95);
+}
+
+
+.header-logo {
+  height: 60px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.header-logo:hover {
+  transform: scale(1.1);
 }
 
 /* Main CV Points Section */
@@ -234,4 +241,5 @@ header {
     font-size: 1.5rem;
   }
 }
+
 
