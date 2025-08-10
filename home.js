@@ -1,4 +1,3 @@
-// SLIDESHOW
 let slideIndex = 0;
 const slides = document.getElementsByClassName("slide");
 
@@ -9,12 +8,11 @@ function showSlides() {
   slideIndex++;
   if (slideIndex > slides.length) { slideIndex = 1; }
   slides[slideIndex - 1].classList.add("active");
-  setTimeout(showSlides, 4000); // 4 seconds
+  setTimeout(showSlides, 4000);
 }
 
 window.onload = showSlides;
 
-// EXPLORE MENU
 document.addEventListener("DOMContentLoaded", () => {
   const exploreBtn = document.getElementById("explore-btn");
   const dropdown = document.getElementById("explore-dropdown");
@@ -29,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // CHATBOT
+  // Chatbot
   const chatbotIcon = document.getElementById('chatbot-icon');
   const chatbotBox = document.getElementById('chatbot-box');
   const chatbotClose = document.getElementById('chatbot-close');
@@ -57,16 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   chatbotIcon.addEventListener('click', () => {
-  chatbotBox.style.display = 'flex';
-  chatbotIcon.style.display = 'none';
-  input.focus();
-});
+    chatbotBox.style.display = 'flex';
+    input.focus();
+  });
 
-chatbotClose.addEventListener('click', () => {
-  chatbotBox.style.display = 'none';
-  chatbotIcon.style.display = 'flex';
-});
-
+  chatbotClose.addEventListener('click', () => {
+    chatbotBox.style.display = 'none';
+  });
 
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && input.value.trim() !== '') {
@@ -92,8 +87,7 @@ chatbotClose.addEventListener('click', () => {
         if (typingMsg) typingMsg.remove();
 
         addMessage(answer, 'bot');
-      }, 1000);
+      }, 800);
     }
   });
 });
-
