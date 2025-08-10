@@ -68,70 +68,114 @@ body {
   opacity: 0.8;
 }
 
-.points-display {
-  margin: 40px 0;
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #0a0a0a, #1f1f1f);
+  color: white;
+  text-align: center;
 }
 
-.points-value {
-  font-size: 5rem;
+.cv-header {
+  padding: 2rem 1rem;
+  background: linear-gradient(90deg, #ffcc00, #ff9900);
+  color: #111;
+  border-bottom: 4px solid #ffcc00;
+}
+
+.cv-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.tagline {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+}
+
+.cv-container {
+  padding: 2rem;
+  max-width: 500px;
+  margin: auto;
+}
+
+.cv-balance-card {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+}
+
+.balance {
+  font-size: 2.5rem;
   font-weight: bold;
-  color: gold;
-  text-shadow: 0 0 20px gold;
-  display: block;
+  color: #ffcc00;
 }
 
-.points-label {
-  font-size: 1.5rem;
-  color: #ccc;
-}
-
-.redeem-section {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 20px;
-  margin: 20px;
-  border-radius: 12px;
+.cv-section {
+  margin-bottom: 2rem;
 }
 
 .redeem-box {
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 15px 0;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
-#redeemCode {
-  padding: 10px;
-  border-radius: 6px;
+.redeem-box input {
+  flex: 1;
+  padding: 0.8rem;
+  border-radius: 8px;
   border: none;
-  outline: none;
-  width: 200px;
   font-size: 1rem;
 }
 
-#redeemBtn {
-  background: gold;
+.redeem-box button {
+  padding: 0.8rem 1.2rem;
+  background: #ffcc00;
   color: black;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 6px;
   border: none;
+  border-radius: 8px;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s;
 }
 
-#redeemBtn:hover {
-  background: orange;
+.redeem-box button:hover {
+  background: #ff9900;
 }
 
-#redeemMessage {
-  font-size: 1rem;
-  margin-top: 10px;
+.reward-card {
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 12px;
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.2);
 }
 
-footer {
-  margin-top: 30px;
-  padding: 15px;
+.reward-card button {
+  background: #ffcc00;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.reward-card button:hover {
+  background: #ff9900;
+}
+
+.note {
   font-size: 0.9rem;
   opacity: 0.7;
 }
+
+
 
