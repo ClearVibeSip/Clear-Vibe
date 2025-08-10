@@ -9,38 +9,26 @@
 <body>
 <a href="javascript:history.back()" id="back-button" aria-label="Go back" title="Go back">← Back</a>
 
-   <header class="cv-header">
-    <h1>💎 Clear Vibe Points</h1>
-    <p class="tagline">Earn • Redeem • Enjoy Premium Rewards</p>
-  </header>
+  <div class="cv-container">
+    <h1 class="cv-title">Your CV Points</h1>
 
-  <main class="cv-container">
     <div class="cv-balance-card">
-      <h2>Your Balance</h2>
-      <p class="balance"><span class="cv-points-display">0</span> CV</p>
+      <p class="cv-label">Available Balance</p>
+      <h2 class="cv-balance"><span id="cvPointsValue">0</span> CV</h2>
     </div>
 
-    <div class="cv-section">
-      <h3>Redeem a Code</h3>
-      <div class="redeem-box">
-        <input type="text" id="redeemCode" placeholder="Enter your code">
-        <button id="redeemBtn">Redeem</button>
-      </div>
-      <p class="note">Enter a valid code to earn CV Points instantly!</p>
+    <div class="cv-redeem-section">
+      <h3>Redeem Your Points</h3>
+      <p>Use your CV Points to unlock exclusive rewards and offers!</p>
+      <input type="text" id="redeemCode" placeholder="Enter Redeem Code">
+      <button id="redeemCodeBtn" class="cv-btn">Redeem Code</button>
     </div>
 
-    <div class="cv-section">
-      <h3>Use Your Points</h3>
-      <div class="reward-card">
-        <p>🎁 50 CV Points - 10% Off Coupon</p>
-        <button class="redeemReward" data-points="50">Redeem</button>
-      </div>
-      <div class="reward-card">
-        <p>🎁 100 CV Points - Free Shipping</p>
-        <button class="redeemReward" data-points="100">Redeem</button>
-      </div>
+    <div class="cv-action-section">
+      <h3>Quick Redeem</h3>
+      <button id="redeemBtn" class="cv-btn secondary">Redeem 10 CV Points</button>
     </div>
-  </main>
+  </div>
 
   <script src="cv-shared.js"></script>
   <script src="cv-points.js"></script>
