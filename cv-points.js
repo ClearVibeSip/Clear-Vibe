@@ -29,15 +29,17 @@ redeemBtn.addEventListener("click", () => {
 
 // Redeem Code
 document.getElementById("redeemBtn").addEventListener("click", () => {
-  const code = document.getElementById("redeemCode").value.trim().toUpperCase();
-  if (codes[code]) {
-    let newPoints = getCVPoints() + codes[code];
-    setCVPoints(newPoints);
-    alert(`Code redeemed! You earned ${codes[code]} CV Points.`);
-    document.getElementById("redeemCode").value = "";
-  } else {
-    alert("Invalid code. Please try again.");
-  }
+  const codeInput = document.getElementById("redeem-code").value.trim().toUpperCase();
+    const message = document.getElementById("redeem-message");
+
+    if (codes[codeInput]) {
+        cvPoints += codes[codeInput];
+        document.getElementById("points-balance").textContent = cvPoints;
+        message.textContent = `🎉 You earned ${codes[codeInput]} CV points!`;
+        document.getElementById("redeem-code").value = "";
+    } else {
+        message.textContent = "❌ Invalid code. Try again.";
+    }
 });
 
 // Redeem Rewards
@@ -52,6 +54,9 @@ document.querySelectorAll(".redeemReward").forEach(button => {
     }
   });
 });
+
+
+let cvPoints = 0;
 
 const codes = {
   "WELCOME10": 10,
@@ -87,5 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
 
