@@ -362,3 +362,64 @@ nav ul li a:hover {
   }
 }
 
+/* CV Points Section Style */
+.cv-points-section {
+  margin-top: 30px;
+  background: #0a3d62;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-family: 'Outfit', sans-serif;
+}
+
+.cv-points-section h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cv-points-section #cv-points-value {
+  font-size: 1.8rem;
+  color: #00c4ff; /* Highlight CV points value */
+  font-weight: 700;
+}
+
+.cv-points-section .cv-label {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 300;
+  margin-left: 5px;
+}
+
+.cv-btn {
+  background-color: #00c4ff;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cv-btn:hover {
+  background-color: #0098cc;
+  transform: scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .cv-points-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .cv-btn {
+    margin-top: 10px;
+  }
+}
+
