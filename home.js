@@ -141,3 +141,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  let cvPoints = parseInt(localStorage.getItem("cvPoints")) || 0;
+  const display = document.getElementById("cvPointsDisplay");
+  if (display) {
+    display.textContent = cvPoints;
+  }
+});
