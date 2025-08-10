@@ -2,45 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CV Points – Clear Vibe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV Points - Clear Vibe</title>
   <link rel="stylesheet" href="cv-points.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="overlay">
-    <header>
-      <img src="logo.png" alt="Clear Vibe Logo" class="header-logo" />
-    </header>
 
-    <main class="cv-points-section">
-      <h1>CV Points – Your Rewards</h1>
-      <div class="cv-points">
-        <h2>Your CV Points: <span id="cv-points-balance">Loading...</span> CV</h2>
-        <p>Earn more CV Points by making purchases, referring friends, and more!</p>
+  <header class="cv-header">
+    <h1>💎 Your CV Points</h1>
+    <p class="tagline">Clear Vibe Rewards – Premium Benefits Await</p>
+  </header>
+
+  <main>
+    <section class="points-display">
+      <span class="points-value" id="cvPoints">0</span>
+      <span class="points-label">CV Points</span>
+    </section>
+
+    <section class="redeem-section">
+      <h2>Redeem a Code</h2>
+      <p>Enter your code below to add CV Points to your account.</p>
+      <div class="redeem-box">
+        <input type="text" id="redeemCode" placeholder="Enter your code here" />
+        <button id="redeemBtn">Redeem</button>
       </div>
+      <p id="redeemMessage"></p>
+    </section>
+  </main>
 
-      <div class="redeem-section">
-        <h3>Redeem Your CV Points for Exciting Rewards!</h3>
-        <p>Use a redeem code to increase your CV Points and unlock amazing rewards. Enter your code below:</p>
-
-        <input type="text" id="redeem-code" placeholder="Enter your redeem code here" />
-        <button id="redeem-btn" class="premium-btn">Redeem Code</button>
-
-        <div id="redeem-result" class="redeem-result"></div>
-      </div>
-
-      <div class="redeem-options">
-        <h3>Redeem Your CV Points</h3>
-        <ul>
-          <li>500 CV Points = 10% off your next order</li>
-          <li>1000 CV Points = Free product of your choice</li>
-          <li>2000 CV Points = $50 Cash Back</li>
-        </ul>
-        <button class="premium-btn">View Full Rewards</button>
-      </div>
-    </main>
-  </div>
+  <footer>
+    <p>© 2025 Clear Vibe. All rights reserved.</p>
+  </footer>
 
   <script src="cv-points.js"></script>
 </body>
