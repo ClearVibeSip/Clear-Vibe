@@ -1,30 +1,50 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const redeemButton = document.getElementById("redeem-btn");
-  const redeemCodeInput = document.getElementById("redeem-code");
-  const redeemResult = document.getElementById("redeem-result");
+// server.js
+const express = require("express");
+const app = express();
+const PORT = 3000;
 
-  // Sample redeem codes and points (In real scenario, these should be dynamic from backend)
+// Dummy database for storing CV Points (you should use a real database like MongoDB or Firebase in production)
+let users = {
+  "user123": { cvPoints: 500 },
+};
+
+// Middleware for parsing JSON requests
+app.use(express.json());
+
+// Fetch User CV Points
+app.get("/api/get-cv-points/:userId", (req, res) => {
+  const userId = req.params.userId;
+  if (users[userId]) {
+    res.json({ success: true, cvPoints: users[userId].cvPoints });
+  } else {
+    res.json({ success: false, message: "User not found" });
+  }
+});
+
+// Redeem Code Endpoint
+app.post("/api/redeem-code", (req, res) => {
+  const { userId, code } = req.body;
+
+  if (!users[userId]) {
+    return res.json({ success: false, message: "User not found" });
+  }
+
+  // Sample redeem codes and points
   const validCodes = {
     "WELCOME10": 100,   // 100 CV points
     "FREESHIP": 200,    // 200 CV points
     "NEWUSER500": 500   // 500 CV points
   };
 
-  redeemButton.addEventListener("click", () => {
-    const code = redeemCodeInput.value.trim().toUpperCase();
-    if (validCodes[code]) {
-      const points = validCodes[code];
-      redeemResult.textContent = `Success! You've earned ${points} CV Points.`;
-      redeemResult.style.color = "green";
-      
-      // Here, you would typically update the user's CV Points in the backend.
-      // For example: updateUserPoints(userId, points);
+  if (validCodes[code]) {
+    users[userId].cvPoints += validCodes[code];
+    return res.json({ success: true, message: `Success! You've earned ${validCodes[code]} CV Points.` });
+  } else {
+    return res.json({ success: false, message: "Invalid code." });
+  }
+});
 
-      // Optionally clear the input field
-      redeemCodeInput.value = "";
-    } else {
-      redeemResult.textContent = "Invalid code. Please try again.";
-      redeemResult.style.color = "red";
-    }
-  });
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
