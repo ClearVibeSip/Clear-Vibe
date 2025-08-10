@@ -95,87 +95,131 @@ body {
 }
 
 .cv-container {
-  padding: 2rem;
   max-width: 500px;
-  margin: auto;
+  margin: 50px auto;
+  padding: 25px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.cv-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffcc00;
 }
 
 .cv-balance-card {
-  background: #1a1a1a;
-  padding: 1.5rem;
-  border-radius: 15px;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
 }
 
-.balance {
-  font-size: 2.5rem;
+.cv-balance-card:hover {
+  transform: scale(1.03);
+}
+
+.cv-label {
+  font-size: 1em;
+  opacity: 0.7;
+}
+
+.cv-balance {
+  font-size: 2.5em;
   font-weight: bold;
   color: #ffcc00;
 }
 
-.cv-section {
-  margin-bottom: 2rem;
+.cv-redeem-section, .cv-action-section {
+  margin-top: 25px;
 }
 
-.redeem-box {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.redeem-box input {
-  flex: 1;
-  padding: 0.8rem;
-  border-radius: 8px;
-  border: none;
-  font-size: 1rem;
-}
-
-.redeem-box button {
-  padding: 0.8rem 1.2rem;
-  background: #ffcc00;
-  color: black;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.redeem-box button:hover {
-  background: #ff9900;
-}
-
-.reward-card {
-  background: #1a1a1a;
-  padding: 1rem;
-  border-radius: 12px;
-  margin: 0.5rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 0 10px rgba(255, 204, 0, 0.2);
-}
-
-.reward-card button {
+.cv-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin-top: 10px;
   background: #ffcc00;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
+  color: #000;
   font-weight: bold;
-  transition: all 0.3s;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.reward-card button:hover {
-  background: #ff9900;
+.cv-btn:hover {
+  background: #ffdb4d;
+  transform: translateY(-2px);
 }
 
-.note {
-  font-size: 0.9rem;
-  opacity: 0.7;
+.cv-btn.secondary {
+  background: #00ffb3;
+  color: #000;
 }
 
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+}
+cv-points.js
+javascript
+Copy
+Edit
+document.addEventListener("DOMContentLoaded", () => {
+  const pointsValue = document.getElementById("cvPointsValue");
 
+  function updatePointsDisplay() {
+    pointsValue.textContent = getCVPoints();
+  }
+
+  window.addEventListener("cvPointsUpdated", updatePointsDisplay);
+  updatePointsDisplay();
+
+  // Redeem fixed points
+  document.getElementById("redeemBtn").addEventListener("click", () => {
+    let currentPoints = getCVPoints();
+    if (currentPoints >= 10) {
+      setCVPoints(currentPoints - 10);
+      alert("Redeemed 10 CV Points!");
+    } else {
+      alert("Not enough points to redeem.");
+    }
+  });
+
+  // Redeem by code
+  document.getElementById("redeemCodeBtn").addEventListener("click", () => {
+    const code = document.getElementById("redeemCode").value.trim();
+    if (!code) {
+      alert("Please enter a code.");
+      return;
+    }
+
+    // Example codes with values
+    const codes = {
+      "WELCOME10": 10,
+      "BONUS50": 50,
+      "CV100": 100
+    };
+
+    if (codes[code]) {
+      let currentPoints = getCVPoints();
+      setCVPoints(currentPoints + codes[code]);
+      alert(`Code redeemed! You earned ${codes[code]} CV Points.`);
+    } else {
+      alert("Invalid code.");
+    }
+
+    document.getElementById("redeemCode").value = "";
+  });
+});
 
