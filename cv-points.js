@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cvPointsBalance = document.getElementById("cv-points-balance");
 
   // Fetch user CV Points from the backend when the page loads
-  fetch(`/api/get-cv-points/${userId}`)
+  fetch(`http://localhost:3000/api/get-cv-points/${userId}`)
     .then(response => response.json())
     .then(data => {
       if (data.success) {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const code = redeemCodeInput.value.trim().toUpperCase();
 
     // Make API request to redeem the code
-    fetch("/api/redeem-code", {
+    fetch("http://localhost:3000/api/redeem-code", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
