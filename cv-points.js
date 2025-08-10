@@ -1,50 +1,46 @@
-// server.js
-const express = require("express");
-const app = express();
-const PORT = 3000;
+document.addEventListener("DOMContentLoaded", () => {
+  const userId = "user123";  // This would typically be dynamically set (e.g., from user session)
 
-// Dummy database for storing CV Points (you should use a real database like MongoDB or Firebase in production)
-let users = {
-  "user123": { cvPoints: 500 },
-};
+  // Elements from the DOM
+  const redeemButton = document.getElementById("redeem-btn");
+  const redeemCodeInput = document.getElementById("redeem-code");
+  const redeemResult = document.getElementById("redeem-result");
+  const cvPointsBalance = document.getElementById("cv-points-balance");
 
-// Middleware for parsing JSON requests
-app.use(express.json());
+  // Fetch user CV Points from the backend when the page loads
+  fetch(`/api/get-cv-points/${userId}`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        cvPointsBalance.textContent = data.cvPoints;
+      } else {
+        cvPointsBalance.textContent = "Error loading points";
+      }
+    });
 
-// Fetch User CV Points
-app.get("/api/get-cv-points/:userId", (req, res) => {
-  const userId = req.params.userId;
-  if (users[userId]) {
-    res.json({ success: true, cvPoints: users[userId].cvPoints });
-  } else {
-    res.json({ success: false, message: "User not found" });
-  }
-});
+  // Redeem code functionality
+  redeemButton.addEventListener("click", () => {
+    const code = redeemCodeInput.value.trim().toUpperCase();
 
-// Redeem Code Endpoint
-app.post("/api/redeem-code", (req, res) => {
-  const { userId, code } = req.body;
-
-  if (!users[userId]) {
-    return res.json({ success: false, message: "User not found" });
-  }
-
-  // Sample redeem codes and points
-  const validCodes = {
-    "WELCOME10": 100,   // 100 CV points
-    "FREESHIP": 200,    // 200 CV points
-    "NEWUSER500": 500   // 500 CV points
-  };
-
-  if (validCodes[code]) {
-    users[userId].cvPoints += validCodes[code];
-    return res.json({ success: true, message: `Success! You've earned ${validCodes[code]} CV Points.` });
-  } else {
-    return res.json({ success: false, message: "Invalid code." });
-  }
-});
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+    // Make API request to redeem the code
+    fetch("/api/redeem-code", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId, code })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          redeemResult.textContent = data.message;
+          redeemResult.style.color = "green";
+          // Update CV points balance
+          cvPointsBalance.textContent = data.message.includes("earned") ? parseInt(cvPointsBalance.textContent) + parseInt(data.message.split(" ")[4]) : cvPointsBalance.textContent;
+        } else {
+          redeemResult.textContent = data.message;
+          redeemResult.style.color = "red";
+        }
+      });
+  });
 });
