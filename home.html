@@ -10,12 +10,22 @@
 </head>
 <body>
   <div class="slideshow-container">
-     <div class="slide fade"><img src="banner1.png" alt="Banner 1" loading="lazy" /></div>
-     <div class="slide fade"><img src="banner2.png" alt="Banner 2" loading="lazy" /></div>
-     <div class="slide fade"><img src="banner3.png" alt="Banner 3" loading="lazy" /></div>
-     <div class="slide fade"><img src="banner4.png" alt="Banner 4" loading="lazy" /></div>
-     <div class="slide fade"><img src="banner5.png" alt="Banner 5" loading="lazy" /></div>
- </div>
+    <div class="slide fade active">
+      <img src="banner1.png" alt="Banner 1" loading="eager" />
+    </div>
+    <div class="slide fade">
+      <img src="banner2.png" alt="Banner 2" loading="lazy" />
+    </div>
+    <div class="slide fade">
+      <img src="banner3.png" alt="Banner 3" loading="lazy" />
+    </div>
+    <div class="slide fade">
+      <img src="banner4.png" alt="Banner 4" loading="lazy" />
+    </div>
+    <div class="slide fade">
+      <img src="banner5.png" alt="Banner 5" loading="lazy" />
+    </div>
+  </div>
 
   <div class="overlay">
     <header>
@@ -40,32 +50,18 @@
   </div>
 
   <!-- Chatbot Icon -->
-<div id="chatbot-icon">💬</div>
+  <div id="chatbot-icon">💬</div>
 
-<!-- Chatbot Box -->
-<div id="chatbot-box" style="display: none;">
-  <div id="chatbot-header">
-    <span>How may I help you?</span>
-    <button id="chatbot-close">✖</button>
+  <!-- Chatbot Box -->
+  <div id="chatbot-box" style="display: none;">
+    <div id="chatbot-header">
+      <span>How may I help you?</span>
+      <button id="chatbot-close">✖</button>
+    </div>
+    <div id="chatbot-messages"></div>
+    <input type="text" id="chatbot-input" placeholder="Type your question...">
   </div>
-  <div id="chatbot-messages"></div>
-  <input type="text" id="chatbot-input" placeholder="Type your question...">
-</div>
-
-
 
   <script src="home.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
