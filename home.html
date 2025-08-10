@@ -38,25 +38,26 @@
       <p>Experience the next generation of hydration with Clear Vibe. Designed for purity, built for style.</p>
     </main>
   </div>
-  <!-- Chatbot Icon -->
-  <div id="chatbot-icon" title="Chat with us">💬</div>
 
-  <!-- Chatbot Box -->
-  <div id="chatbot-box" style="display:none; position: fixed; bottom: 80px; right: 20px; width: 320px; max-width: 90vw; background: #0a3d62; color: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); flex-direction: column; z-index: 201; font-family: 'Outfit', sans-serif; font-weight: 300;">
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.2);">
-      <strong>ClearVibes Bot</strong>
-      <button id="chatbot-close" style="background: transparent; border: none; color: white; font-size: 20px; cursor: pointer;">×</button>
-    </div>
-    <div id="chatbot-messages" style="padding: 16px; height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
-      <!-- Messages will appear here -->
-    </div>
-    <input id="chatbot-input" type="text" placeholder="Type your message..." autocomplete="off" style="padding: 10px 16px; border: none; border-top: 1px solid rgba(255,255,255,0.2); font-size: 14px; color: #222; border-radius: 0 0 12px 12px; outline: none; width: 100%;" />
+  <!-- Chatbot Icon -->
+<div id="chatbot-icon">💬</div>
+
+<!-- Chatbot Box -->
+<div id="chatbot-box" style="display: none;">
+  <div id="chatbot-header">
+    <span>How may I help you?</span>
+    <button id="chatbot-close">✖</button>
   </div>
+  <div id="chatbot-messages"></div>
+  <input type="text" id="chatbot-input" placeholder="Type your question...">
+</div>
+
 
 
   <script src="home.js"></script>
 </body>
 </html>
+
 
 
 
