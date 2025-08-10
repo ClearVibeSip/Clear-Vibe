@@ -5,11 +5,6 @@ function getCVPoints() {
   return parseInt(localStorage.getItem("cvPoints")) || 0;
 }
 
-// Function to set CV Points
-function setCVPoints(points) {
-  localStorage.setItem("cvPoints", points);
-  updateCVDisplay(points);
-}
 
 // Function to update all CV displays on the page
 function updateCVDisplay(points) {
@@ -29,3 +24,23 @@ window.addEventListener("storage", (event) => {
 document.addEventListener("DOMContentLoaded", () => {
   updateCVDisplay(getCVPoints());
 });
+
+
+function setCVPoints(points) {
+  localStorage.setItem("cvPoints", points);
+  // Trigger a custom event for live updates
+  window.dispatchEvent(new Event("cvPointsUpdated"));
+}
+
+function updateExploreMenuPoints() {
+  const explorePointsElement = document.getElementById("exploreCvPoints");
+  if (explorePointsElement) {
+    explorePointsElement.textContent = getCVPoints();
+  }
+}
+
+// Listen for changes and update menu
+window.addEventListener("cvPointsUpdated", updateExploreMenuPoints);
+
+// Also run on load
+document.addEventListener("DOMContentLoaded", updateExploreMenuPoints);
