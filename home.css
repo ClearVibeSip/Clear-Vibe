@@ -274,17 +274,18 @@ nav ul li a:hover {
 }
 
 /* CV Points Styling */
-#explore-dropdown li a {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #ffffff;
+#cvPointsDisplay {
+  font-weight: bold;
+  color: gold;
+  text-shadow: 0 0 6px gold;
+  transition: 0.3s ease;
 }
 
-#cv-points-value {
-  color: #00c4ff; /* Highlight CV Points value */
-  font-weight: 700;
-  margin-left: 5px;
+.explore-item:hover #cvPointsDisplay {
+  color: orange;
+  text-shadow: 0 0 12px orange;
 }
+
 
 
 
@@ -435,5 +436,6 @@ nav ul li a:hover {
     margin-top: 10px;
   }
 }
+
 
 
