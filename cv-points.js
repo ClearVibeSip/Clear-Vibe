@@ -7,12 +7,6 @@ const redeemMessage = document.getElementById("redeemMessage");
 
 pointsDisplay.textContent = cvPoints;
 
-// Example valid codes
-const codes = {
-  "WELCOME100": 100,
-  "BONUS500": 500,
-  "VIP1000": 1000
-};
 
 redeemBtn.addEventListener("click", () => {
   const code = redeemInput.value.trim().toUpperCase();
@@ -30,3 +24,32 @@ redeemBtn.addEventListener("click", () => {
 
   redeemInput.value = "";
 });
+
+
+
+// Redeem Code
+document.getElementById("redeemBtn").addEventListener("click", () => {
+  const code = document.getElementById("redeemCode").value.trim().toUpperCase();
+  if (codes[code]) {
+    let newPoints = getCVPoints() + codes[code];
+    setCVPoints(newPoints);
+    alert(`Code redeemed! You earned ${codes[code]} CV Points.`);
+    document.getElementById("redeemCode").value = "";
+  } else {
+    alert("Invalid code. Please try again.");
+  }
+});
+
+// Redeem Rewards
+document.querySelectorAll(".redeemReward").forEach(button => {
+  button.addEventListener("click", () => {
+    let cost = parseInt(button.dataset.points);
+    if (getCVPoints() >= cost) {
+      setCVPoints(getCVPoints() - cost);
+      alert(`You redeemed ${cost} CV Points for this reward!`);
+    } else {
+      alert("Not enough CV Points!");
+    }
+  });
+});
+
