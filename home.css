@@ -312,15 +312,15 @@ nav ul li a:hover {
 } 
 
 @media (max-width: 400px) {
-
-  /* Chatbot Icon - Always visible by default */
+  
+/* Chatbot Icon - Floating Bottom Right */
 #chatbot-icon {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background: #4CAF50;
   color: white;
-  font-size: 28px;
+  font-size: 30px;
   padding: 15px;
   border-radius: 50%;
   cursor: pointer;
@@ -328,7 +328,14 @@ nav ul li a:hover {
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  animation: bounce 1.5s infinite ease-in-out;
+}
+
+/* Floating bounce animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 /* Chatbot Box */
@@ -344,7 +351,9 @@ nav ul li a:hover {
   display: none;
   flex-direction: column;
   z-index: 10000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
+
 
 
 #chatbot-icon:hover {
@@ -379,6 +388,7 @@ nav ul li a:hover {
   font-style: normal;
   opacity: 1;
 }
+
 
 
 
