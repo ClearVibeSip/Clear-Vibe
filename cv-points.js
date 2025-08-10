@@ -53,6 +53,16 @@ document.querySelectorAll(".redeemReward").forEach(button => {
   });
 });
 
+const codes = {
+  "WELCOME10": 10,
+  "CLEARVIBEMINT": 50,
+  "SHRI0703": 500,
+  "CLEARVIBESIP": 25,  // Gives 25 CV points
+  "VIPCV": 200,   // Gives 200 CV points
+  "FREEDAY5": 5    // Gives 5 CV points
+};
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const pointsValue = document.getElementById("cvPointsValue");
 
@@ -77,4 +87,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
