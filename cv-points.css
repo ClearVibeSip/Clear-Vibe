@@ -204,13 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Example codes with values
-    const codes = {
-      "WELCOME10": 10,
-      "BONUS50": 50,
-      "CV100": 100
-    };
-
+  
     if (codes[code]) {
       let currentPoints = getCVPoints();
       setCVPoints(currentPoints + codes[code]);
@@ -222,4 +216,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("redeemCode").value = "";
   });
 });
+
 
