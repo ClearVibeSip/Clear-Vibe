@@ -9,9 +9,12 @@
 <body>
 <a href="javascript:history.back()" id="back-button" aria-label="Go back" title="Go back">← Back</a>
 
-  <div class="cv-container">
-    <h1 class="cv-title">Your CV Points</h1>
-
+<div class="cv-container">
+        <h1>My CV Points</h1>
+        <div class="points-display">
+            <span id="points-balance">0</span> CV
+        </div>
+  
     <div class="cv-balance-card">
       <p class="cv-label">Available Balance</p>
       <h2 class="cv-balance"><span id="cvPointsValue">0</span> CV</h2>
@@ -24,6 +27,8 @@
       <button id="redeemCodeBtn" class="cv-btn">Redeem Code</button>
     </div>
 
+    <p id="redeem-message"></p>
+
     <div class="cv-action-section">
       <h3>Use your CV Points to earn exciting rewards !</h3>
       <button id="redeemBtn" class="cv-btn secondary">Use CV Points</button>
@@ -34,6 +39,7 @@
   <script src="cv-points.js"></script>
 </body>
 </html>
+
 
 
 
