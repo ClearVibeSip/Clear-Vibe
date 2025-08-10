@@ -8,6 +8,17 @@ const redeemMessage = document.getElementById("redeemMessage");
 pointsDisplay.textContent = cvPoints;
 
 
+let cvPoints = 0;
+
+const codes = {
+  "WELCOME10": 10,
+  "CLEARVIBEMINT": 50,
+  "SHRI0703": 500,
+  "CLEARVIBESIP": 25,  // Gives 25 CV points
+  "VIPCV": 200,   // Gives 200 CV points
+  "FREEDAY5": 5    // Gives 5 CV points
+};
+
 redeemBtn.addEventListener("click", () => {
   const code = redeemInput.value.trim().toUpperCase();
 
@@ -56,16 +67,6 @@ document.querySelectorAll(".redeemReward").forEach(button => {
 });
 
 
-let cvPoints = 0;
-
-const codes = {
-  "WELCOME10": 10,
-  "CLEARVIBEMINT": 50,
-  "SHRI0703": 500,
-  "CLEARVIBESIP": 25,  // Gives 25 CV points
-  "VIPCV": 200,   // Gives 200 CV points
-  "FREEDAY5": 5    // Gives 5 CV points
-};
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -92,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
 
 
