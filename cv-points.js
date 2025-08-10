@@ -1,46 +1,32 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const userId = "user123";  // This would typically be dynamically set (e.g., from user session)
+// Initial points from localStorage or 0
+let cvPoints = parseInt(localStorage.getItem("cvPoints")) || 0;
+const pointsDisplay = document.getElementById("cvPoints");
+const redeemInput = document.getElementById("redeemCode");
+const redeemBtn = document.getElementById("redeemBtn");
+const redeemMessage = document.getElementById("redeemMessage");
 
-  // Elements from the DOM
-  const redeemButton = document.getElementById("redeem-btn");
-  const redeemCodeInput = document.getElementById("redeem-code");
-  const redeemResult = document.getElementById("redeem-result");
-  const cvPointsBalance = document.getElementById("cv-points-balance");
+pointsDisplay.textContent = cvPoints;
 
-  // Fetch user CV Points from the backend when the page loads
-  fetch(`http://localhost:3000/api/get-cv-points/${userId}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        cvPointsBalance.textContent = data.cvPoints;
-      } else {
-        cvPointsBalance.textContent = "Error loading points";
-      }
-    });
+// Example valid codes
+const codes = {
+  "WELCOME100": 100,
+  "BONUS500": 500,
+  "VIP1000": 1000
+};
 
-  // Redeem code functionality
-  redeemButton.addEventListener("click", () => {
-    const code = redeemCodeInput.value.trim().toUpperCase();
+redeemBtn.addEventListener("click", () => {
+  const code = redeemInput.value.trim().toUpperCase();
 
-    // Make API request to redeem the code
-    fetch("http://localhost:3000/api/redeem-code", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, code })
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          redeemResult.textContent = data.message;
-          redeemResult.style.color = "green";
-          // Update CV points balance
-          cvPointsBalance.textContent = data.message.includes("earned") ? parseInt(cvPointsBalance.textContent) + parseInt(data.message.split(" ")[4]) : cvPointsBalance.textContent;
-        } else {
-          redeemResult.textContent = data.message;
-          redeemResult.style.color = "red";
-        }
-      });
-  });
+  if (codes[code]) {
+    cvPoints += codes[code];
+    localStorage.setItem("cvPoints", cvPoints);
+    pointsDisplay.textContent = cvPoints;
+    redeemMessage.textContent = `🎉 Success! You received ${codes[code]} CV Points.`;
+    redeemMessage.style.color = "lime";
+  } else {
+    redeemMessage.textContent = "❌ Invalid code. Please try again.";
+    redeemMessage.style.color = "red";
+  }
+
+  redeemInput.value = "";
 });
