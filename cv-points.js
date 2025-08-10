@@ -53,3 +53,28 @@ document.querySelectorAll(".redeemReward").forEach(button => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const pointsValue = document.getElementById("cvPointsValue");
+
+  function updatePointsDisplay() {
+    pointsValue.textContent = getCVPoints();
+  }
+
+  // Listen for live updates
+  window.addEventListener("cvPointsUpdated", updatePointsDisplay);
+
+  // Initial load
+  updatePointsDisplay();
+
+  // Example redeem button logic
+  document.getElementById("redeemBtn").addEventListener("click", () => {
+    let currentPoints = getCVPoints();
+    if (currentPoints >= 10) {
+      setCVPoints(currentPoints - 10);
+      alert("Redeemed 10 CV Points!");
+    } else {
+      alert("Not enough points to redeem.");
+    }
+  });
+});
+
