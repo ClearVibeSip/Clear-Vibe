@@ -57,13 +57,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   chatbotIcon.addEventListener('click', () => {
-    chatbotBox.style.display = 'flex';
-    input.focus();
-  });
+  chatbotBox.style.display = 'flex';
+  chatbotIcon.style.display = 'none';
+  input.focus();
+});
 
-  chatbotClose.addEventListener('click', () => {
-    chatbotIcon.style.display = 'flex';
-  });
+chatbotClose.addEventListener('click', () => {
+  chatbotBox.style.display = 'none';
+  chatbotIcon.style.display = 'flex';
+});
+
 
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && input.value.trim() !== '') {
@@ -93,3 +96,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
