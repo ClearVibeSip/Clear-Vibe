@@ -1,31 +1,60 @@
-// Initial points from localStorage or 0
+// Get points from localStorage or 0
 let cvPoints = parseInt(localStorage.getItem("cvPoints")) || 0;
-const pointsDisplay = document.getElementById("cvPoints");
-const redeemInput = document.getElementById("redeemCode");
-const redeemBtn = document.getElementById("redeemBtn");
-const redeemMessage = document.getElementById("redeemMessage");
 
+// Match HTML IDs
+const pointsDisplay = document.getElementById("points-balance");
+const redeemInput = document.getElementById("redeemCode");
+const redeemCodeBtn = document.getElementById("redeemCodeBtn");
+const redeemMessage = document.getElementById("redeem-message");
+
+// Function to animate number change + gold glow
+function animatePoints(from, to) {
+  const duration = 600; // animation duration in ms
+  const start = performance.now();
+
+  // Add glow effect
+  pointsDisplay.classList.add("points-glow");
+
+  function update(now) {
+    let progress = Math.min((now - start) / duration, 1);
+    let currentValue = Math.floor(from + (to - from) * progress);
+    pointsDisplay.textContent = currentValue;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      pointsDisplay.textContent = to; // final value
+      // Remove glow after a short delay
+      setTimeout(() => pointsDisplay.classList.remove("points-glow"), 500);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+// Display initial points
 pointsDisplay.textContent = cvPoints;
 
-
-let cvPoints = 0;
-
+// List of redeemable codes
 const codes = {
   "WELCOME10": 10,
   "CLEARVIBEMINT": 50,
   "SHRI0703": 500,
-  "CLEARVIBESIP": 25,  // Gives 25 CV points
-  "VIPCV": 200,   // Gives 200 CV points
-  "FREEDAY5": 5    // Gives 5 CV points
+  "CLEARVIBESIP": 25,
+  "VIPCV": 200,
+  "FREEDAY5": 5
 };
 
+// Redeem Code Button Click
 redeemCodeBtn.addEventListener("click", () => {
   const code = redeemInput.value.trim().toUpperCase();
 
   if (codes[code]) {
+    const oldPoints = cvPoints;
     cvPoints += codes[code];
     localStorage.setItem("cvPoints", cvPoints);
-    pointsDisplay.textContent = cvPoints;
+    animatePoints(oldPoints, cvPoints);
+
     redeemMessage.textContent = `🎉 Success! You received ${codes[code]} CV Points.`;
     redeemMessage.style.color = "lime";
   } else {
@@ -36,66 +65,15 @@ redeemCodeBtn.addEventListener("click", () => {
   redeemInput.value = "";
 });
 
-
-
-// Redeem Code
-document.getElementById("redeemCodeBtn").addEventListener("click", () => {
-  const codeInput = document.getElementById("redeem-code").value.trim().toUpperCase();
-    const message = document.getElementById("redeem-message");
-
-    if (codes[codeInput]) {
-        cvPoints += codes[codeInput];
-        document.getElementById("points-balance").textContent = cvPoints;
-        message.textContent = `🎉 You earned ${codes[codeInput]} CV points!`;
-        document.getElementById("redeem-code").value = "";
-    } else {
-        message.textContent = "❌ Invalid code. Try again.";
-    }
-});
-
-// Redeem Rewards
-document.querySelectorAll(".redeemReward").forEach(button => {
-  button.addEventListener("click", () => {
-    let cost = parseInt(button.dataset.points);
-    if (getCVPoints() >= cost) {
-      setCVPoints(getCVPoints() - cost);
-      alert(`You redeemed ${cost} CV Points for this reward!`);
-    } else {
-      alert("Not enough CV Points!");
-    }
-  });
-});
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const pointsValue = document.getElementById("cvPointsValue");
-
-  function updatePointsDisplay() {
-    pointsValue.textContent = getCVPoints();
+// Redeem Rewards Button Click
+document.getElementById("redeemBtn").addEventListener("click", () => {
+  if (cvPoints >= 10) {
+    const oldPoints = cvPoints;
+    cvPoints -= 10;
+    localStorage.setItem("cvPoints", cvPoints);
+    animatePoints(oldPoints, cvPoints);
+    alert("Redeemed 10 CV Points!");
+  } else {
+    alert("Not enough points to redeem.");
   }
-
-  // Listen for live updates
-  window.addEventListener("cvPointsUpdated", updatePointsDisplay);
-
-  // Initial load
-  updatePointsDisplay();
-
-  // Example redeem button logic
-  document.getElementById("redeemBtn").addEventListener("click", () => {
-    let currentPoints = getCVPoints();
-    if (currentPoints >= 10) {
-      setCVPoints(currentPoints - 10);
-      alert("Redeemed 10 CV Points!");
-    } else {
-      alert("Not enough points to redeem.");
-    }
-  });
 });
-
-
-
-
-
-
