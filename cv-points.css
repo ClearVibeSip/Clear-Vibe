@@ -193,4 +193,10 @@ input[type="text"] {
   font-size: 1em;
 }
 
+.points-glow {
+  color: gold;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
 
