@@ -1,41 +1,14 @@
-// Get points from localStorage or 0
-let cvPoints = parseInt(localStorage.getItem("cvPoints")) || 0;
 
-// Match HTML IDs
-const pointsDisplay = document.getElementById("points-balance");
-const redeemInput = document.getElementById("redeemCode");
-const redeemCodeBtn = document.getElementById("redeemCodeBtn");
-const redeemMessage = document.getElementById("redeem-message");
 
 // Function to animate number change + gold glow
 function animatePoints(from, to) {
   const duration = 600; // animation duration in ms
   const start = performance.now();
 
-  // Add glow effect
-  pointsDisplay.classList.add("points-glow");
+ // Load saved points or start at 0
+let cvPoints = parseInt(localStorage.getItem("cvPoints")) || 0;
+const usedCodes = JSON.parse(localStorage.getItem("usedCodes")) || [];
 
-  function update(now) {
-    let progress = Math.min((now - start) / duration, 1);
-    let currentValue = Math.floor(from + (to - from) * progress);
-    pointsDisplay.textContent = currentValue;
-
-    if (progress < 1) {
-      requestAnimationFrame(update);
-    } else {
-      pointsDisplay.textContent = to; // final value
-      // Remove glow after a short delay
-      setTimeout(() => pointsDisplay.classList.remove("points-glow"), 500);
-    }
-  }
-
-  requestAnimationFrame(update);
-}
-
-// Display initial points
-pointsDisplay.textContent = cvPoints;
-
-// List of redeemable codes
 const codes = {
   "WELCOME10": 10,
   "CLEARVIBEMINT": 50,
@@ -45,39 +18,55 @@ const codes = {
   "FREEDAY5": 5
 };
 
-// Redeem Code Button Click
-redeemCodeBtn.addEventListener("click", () => {
-  const code = redeemInput.value.trim().toUpperCase();
+// Update points on page load
+document.getElementById("points-balance").textContent = cvPoints;
+document.getElementById("cvPointsValue").textContent = cvPoints;
 
-  if (codes[code]) {
-    const oldPoints = cvPoints;
-    cvPoints += codes[code];
-    localStorage.setItem("cvPoints", cvPoints);
-    animatePoints(oldPoints, cvPoints);
+// Function to save points
+function savePoints() {
+  localStorage.setItem("cvPoints", cvPoints);
+}
 
-    redeemMessage.textContent = `🎉 Success! You received ${codes[code]} CV Points.`;
-    redeemMessage.style.color = "lime";
-  } else {
-    redeemMessage.textContent = "❌ Invalid code. Please try again.";
-    redeemMessage.style.color = "red";
+// Function to check if code is used
+function hasUsedCode(code) {
+  return usedCodes.includes(code);
+}
+
+// Function to mark a code as used
+function markCodeUsed(code) {
+  usedCodes.push(code);
+  localStorage.setItem("usedCodes", JSON.stringify(usedCodes));
+}
+
+// Redeem code button click
+document.getElementById("redeemCodeBtn").addEventListener("click", () => {
+  const codeInput = document.getElementById("redeemCode").value.trim().toUpperCase();
+  const message = document.getElementById("redeem-message");
+
+  if (!codeInput) {
+    message.textContent = "⚠️ Please enter a code.";
+    message.style.color = "orange";
+    return;
   }
 
-  redeemInput.value = "";
-});
+  if (hasUsedCode(codeInput)) {
+    message.textContent = "⚠️ You have already used this code.";
+    message.style.color = "orange";
+  } else if (codes[codeInput]) {
+    cvPoints += codes[codeInput];
+    savePoints();
+    markCodeUsed(codeInput);
 
-// Redeem Rewards Button Click
-document.getElementById("redeemBtn").addEventListener("click", () => {
-  if (cvPoints >= 10) {
-    const oldPoints = cvPoints;
-    cvPoints -= 10;
-    localStorage.setItem("cvPoints", cvPoints);
-    animatePoints(oldPoints, cvPoints);
-    alert("Redeemed 10 CV Points!");
+    document.getElementById("points-balance").textContent = cvPoints;
+    document.getElementById("cvPointsValue").textContent = cvPoints;
+
+    message.textContent = `🎉 You earned ${codes[codeInput]} CV Points!`;
+    message.style.color = "lime";
   } else {
-    alert("Not enough points to redeem.");
+    message.textContent = "❌ Invalid code. Try again.";
+    message.style.color = "red";
   }
+
+  document.getElementById("redeemCode").value = "";
 });
 
-document.getElementById("usePointsBtn").addEventListener("click", () => {
-  window.location.href = "rewards.html"; // Redirect to rewards page
-});
