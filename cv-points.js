@@ -19,7 +19,7 @@ const codes = {
   "FREEDAY5": 5    // Gives 5 CV points
 };
 
-redeemBtn.addEventListener("click", () => {
+redeemCodeBtn.addEventListener("click", () => {
   const code = redeemInput.value.trim().toUpperCase();
 
   if (codes[code]) {
@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
 
 
