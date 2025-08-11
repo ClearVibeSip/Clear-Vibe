@@ -39,9 +39,28 @@ function markCodeUsed(code) {
 }
 
 // Redeem code button click
-document.getElementById("redeemCodeBtn").addEventListener("click", () => {
-  const codeInput = document.getElementById("redeemCode").value.trim().toUpperCase();
+document.getElementById("redeemCodeBtn").addEventListener("click", async () => {
+  const code = document.getElementById("redeemCode").value.trim().toUpperCase();
+  const userId = localStorage.getItem("userId") || crypto.randomUUID(); // Generate and store a unique user ID
+  localStorage.setItem("userId", userId);
+
+  const response = await fetch("http://localhost:3000/redeem", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ code, userId })
+  });
+
+  const result = await response.json();
   const message = document.getElementById("redeem-message");
+
+  message.textContent = result.message;
+  message.style.color = result.success ? "lime" : "red";
+
+  if (result.success) {
+    let currentPoints = getCVPoints();
+    setCVPoints(currentPoints + result.points);
+  }
+});
 
   if (!codeInput) {
     message.textContent = "⚠️ Please enter a code.";
@@ -69,4 +88,5 @@ document.getElementById("redeemCodeBtn").addEventListener("click", () => {
 
   document.getElementById("redeemCode").value = "";
 });
+
 
