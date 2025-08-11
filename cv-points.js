@@ -39,7 +39,7 @@ redeemBtn.addEventListener("click", () => {
 
 
 // Redeem Code
-document.getElementById("redeemBtn").addEventListener("click", () => {
+document.getElementById("redeemCodeBtn").addEventListener("click", () => {
   const codeInput = document.getElementById("redeem-code").value.trim().toUpperCase();
     const message = document.getElementById("redeem-message");
 
@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
 
 
