@@ -77,3 +77,7 @@ document.getElementById("redeemBtn").addEventListener("click", () => {
     alert("Not enough points to redeem.");
   }
 });
+
+document.getElementById("usePointsBtn").addEventListener("click", () => {
+  window.location.href = "rewards.html"; // Redirect to rewards page
+});
