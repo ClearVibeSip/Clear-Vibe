@@ -1,47 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rewards - Clear Vibe</title>
   <link rel="icon" href="logo.png" type="image/png">
-  <link rel="stylesheet" href="rewards.css">
+  <link rel="stylesheet" href="rewards.css" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<a href="cv-points.html" id="back-button">← Back to CV Points</a>
+<a href="javascript:history.back()" id="back-button">← Back</a>
 
 <div class="rewards-container">
-  <h1>Redeem Your Rewards</h1>
-  <div class="points-display">
-    Your Points: <span id="points-balance">0</span> CV
-  </div>
+    <h1>🎁 Clear Vibe Rewards</h1>
+    <p class="points-info">Your Balance: <span id="points-balance">0</span> CV</p>
 
-  <div class="reward-card">
-    <img src="giftcard.png" alt="Gift Card">
-    <h3>$10 Gift Card</h3>
-    <p>Get a $10 e-gift card for your favorite store.</p>
-    <button class="redeemReward" data-points="100">Redeem (100 CV)</button>
-  </div>
+    <div class="reward-card">
+        <h2>10% Discount Coupon</h2>
+        <p>Cost: 50 CV Points</p>
+        <button class="redeemReward" data-points="50">Redeem</button>
+    </div>
 
-  <div class="reward-card">
-    <img src="discount.png" alt="Discount Coupon">
-    <h3>25% Off Coupon</h3>
-    <p>Enjoy 25% off your next purchase.</p>
-    <button class="redeemReward" data-points="50">Redeem (50 CV)</button>
-  </div>
+    <div class="reward-card">
+        <h2>Exclusive VIP Badge</h2>
+        <p>Cost: 200 CV Points</p>
+        <button class="redeemReward" data-points="200">Redeem</button>
+    </div>
 
-  <div class="reward-card">
-    <img src="exclusive.png" alt="Exclusive Item">
-    <h3>Exclusive Clear Vibe Hoodie</h3>
-    <p>Show off your Clear Vibe style!</p>
-    <button class="redeemReward" data-points="250">Redeem (250 CV)</button>
-  </div>
+    <div class="reward-card">
+        <h2>Free Shipping Voucher</h2>
+        <p>Cost: 100 CV Points</p>
+        <button class="redeemReward" data-points="100">Redeem</button>
+    </div>
 </div>
 
-<script src="cv-shared.js"></script>
 <script src="rewards.js"></script>
-
 </body>
 </html>
